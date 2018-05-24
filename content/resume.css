@@ -1,0 +1,234 @@
+﻿@CHARSET "UTF-8";
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-536870145 1073786111 1 0 415 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin-top:2.0pt;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:0in;
+	line-height:120%;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	color:#595959;
+	mso-themecolor:text1;
+	mso-themetint:166;
+	mso-font-kerning:10.0pt;
+	mso-fareast-language:JA;}
+h1
+	{mso-style-qformat:yes;
+	mso-style-next:Normal;
+	margin-top:2.0pt;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:0in;
+	text-align:right;
+	line-height:120%;
+	mso-pagination:widow-orphan;
+	mso-outline-level:1;
+	font-size:10.5pt;
+	font-family:"Calibri",sans-serif;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:major-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:major-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:major-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:major-bidi;
+	color:#5C2D91;
+	mso-themecolor:accent1;
+	text-transform:uppercase;
+	mso-font-kerning:10.0pt;
+	mso-fareast-language:JA;
+	font-weight:normal;}
+h2
+	{mso-style-qformat:yes;
+	mso-style-next:Normal;
+	margin-top:2.0pt;
+	margin-right:0in;
+	margin-bottom:2.0pt;
+	margin-left:0in;
+	line-height:120%;
+	mso-pagination:widow-orphan lines-together;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:10.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:major-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:major-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:major-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:major-bidi;
+	color:#404040;
+	mso-themecolor:text1;
+	mso-themetint:191;
+	text-transform:uppercase;
+	mso-font-kerning:10.0pt;
+	mso-ligatures:standardcontextual;
+	mso-fareast-language:JA;}
+p.ResumeText, li.ResumeText, div.ResumeText
+	{mso-style-name:"Resume Text";
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	margin-top:2.0pt;
+	margin-right:1.0in;
+	margin-bottom:2.0pt;
+	margin-left:0in;
+	line-height:120%;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	color:#595959;
+	mso-themecolor:text1;
+	mso-themetint:166;
+	mso-font-kerning:10.0pt;
+	mso-fareast-language:JA;}
+p.ContactInfo, li.ContactInfo, div.ContactInfo
+	{mso-style-name:"Contact Info";
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	margin-top:2.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	text-align:right;
+	mso-pagination:widow-orphan;
+	font-size:9.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	color:#595959;
+	mso-themecolor:text1;
+	mso-themetint:166;
+	mso-font-kerning:10.0pt;
+	mso-fareast-language:JA;}
+p.Name, li.Name, div.Name
+	{mso-style-name:Name;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:.1in;
+	margin-bottom:8.0pt;
+	margin-left:.1in;
+	line-height:120%;
+	mso-pagination:widow-orphan;
+	background:#5C2D91;
+	mso-background-themecolor:accent1;
+	border:none;
+	mso-border-alt:solid #5C2D91 .5pt;
+	mso-border-themecolor:accent1;
+	padding:0in;
+	mso-padding-alt:4.0pt 6.0pt 4.0pt 6.0pt;
+	font-size:16.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:major-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:major-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:major-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:major-bidi;
+	color:white;
+	mso-themecolor:background1;
+	text-transform:uppercase;
+	mso-font-kerning:10.0pt;
+	mso-fareast-language:JA;}
+
+.ColorNameBar{
+	mso-element:para-border-div;
+	border:solid #5C2D91 1.0pt;
+	mso-border-themecolor:accent1;
+	mso-border-alt:solid #5C2D91 .5pt;
+ 	mso-border-themecolor:accent1;
+ 	padding:4.0pt 6.0pt 4.0pt 6.0pt;
+ 	background:#5C2D91;
+ 	mso-background-themecolor:accent1;
+ 	margin-left:.1in;
+ 	margin-right:.1in;}
+ 
+ 
+ /*Resume Table*/
+ 
+ /*Subject column*/
+ .Column1{
+	width:88.9pt;
+	border:none;
+	border-bottom:solid #5C2D91 1.0pt;
+	mso-border-bottom-themecolor:accent1;
+	mso-border-bottom-alt:solid #5C2D91 .5pt;
+	mso-border-bottom-themecolor:accent1;
+	padding:.1in 0in .1in 0in;}
+
+  /*blank column*/
+  .Column2{
+  	width:23.6pt;
+  	border:none;
+  	border-bottom:solid #5C2D91 1.0pt;
+  	mso-border-bottom-themecolor:accent1;
+  	mso-border-bottom-alt:solid #5C2D91 .5pt;
+  	mso-border-bottom-themecolor:accent1;
+  	padding:.1in 0in .1in 0in;}
+ 
+ /*Content column*/ 
+  .Column3{
+  	width:391.5pt;
+  	border:none;
+  	border-bottom:solid #5C2D91 1.0pt;
+  	mso-border-bottom-themecolor:accent1;
+  	mso-border-bottom-alt:solid #5C2D91 .5pt;
+  	mso-border-bottom-themecolor:accent1;
+  	padding:.1in 0in .1in 0in;}
+  	
+ /*Span Bullet*/
+ .Span-resume{
+	font-size:10.0pt;
+	line-height:120%;
+	font-family:"Calibri",sans-serif;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-font-kerning:10.0pt;
+	mso-ansi-language:EN-US;
+	mso-fareast-language:JA;
+	mso-bidi-language:AR-SA';}

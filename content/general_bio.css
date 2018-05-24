@@ -1,0 +1,39 @@
+﻿@CHARSET "UTF-8";
+
+        .Bio {
+            text-align: center;
+            width: 100%;
+            margin: 0 auto;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+        }
+
+        #contact {
+            width: 100%;
+            text-align:center;
+            border-radius: 25px;
+            border: 0px;
+            text-shadow: 0 0 0;
+            background: rgb(220,220,220);
+            padding-left: 0.9em;
+            padding-right: 0;
+        }
+
+        .bio-photo {
+            margin: 0 auto;
+            background: #000;
+            width: 150px;
+            height: 150px;
+            padding: 0;
+            color: #fff;
+            text-align: center;
+            border-radius: 250px;
+        }
+        .bio-name{
+            margin:0 auto;
+            color:rgb(58,54,66); 
+            font:KaiTi;               
+        }
+        .bio-content{
+            margin:0 auto;
+            color:rgb(76,69,86);
+        }
