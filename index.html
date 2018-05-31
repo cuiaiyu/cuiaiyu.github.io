@@ -72,6 +72,32 @@
     display: inline-block;
     border-radius: 20%;
 }
+    .button-item {
+    background-color: grey; /* Green */
+    color: white;
+    padding-left:1%;
+    padding-right: 1%;
+    margin-top:2px;
+    margin-bottom:2px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 20% 0 20% 0;
+    font-size:0.86em;
+    text-shadow: 0;
+}
+    .button-page{
+        background-color: #008fb3;
+    }
+    .button-sourcecode{
+        background-color:  #204060;
+    }
+    .button-demo{
+        background-color: #FF5733;
+    }
+    .button-paper{
+        background-color: #2eb82e;
+    }
 </style>
 
 <link rel="stylesheet" type="text/css" href="content/general_bio.css" />
@@ -105,9 +131,9 @@
             </div>
             <b>&#x221e;&#x221e;&#x221e;&#x221e;&#x221e;</b><br />
             <a  class="button" href="CV201805.pdf" style = "font-size:1.1em;background-color:#FF5733"><b>Resume/CV</b></a> | 
-            <a  class="button" href="https://github.com/cuiaiyu" style = "font-size:1.1em;background-color:#2eb82e"> <b>Github</b></a> |
             <a  class="button" href="#pubs" style = "font-size:1.1em;background-color:#2eb82e""> <b>Research</b></a> |
              <a  class="button" href="#projs" style = "font-size:1.1em;background-color:#2eb82e""> <b>Projects</b></a> |
+             <a  class="button" href="https://github.com/cuiaiyu" style = "font-size:1.1em;background-color:#008fb3"> <b>Github</b></a> |
             <a  class="button" href="mailto:aiyucay@gmail.com" style = "font-size:1.1em;background-color:#008fb3"><b>Contact</b></a> 
             <br />
         </div>
@@ -116,8 +142,9 @@
          <div class="subtitle-center">Research</div>
          <ul style = "text-align: left;font-size:1.1em">
             <li>Undergrad Honor Thesis, <b>Mutiple Object Tracking</b>
-            [<a href = "https://honors.libraries.psu.edu/catalog/5077abc5462">Page</a>]
-            [<a href = "https://honors.libraries.psu.edu/files/final_submissions/5043">PDF</a>]
+
+                <a class="button-item button-paper" href = "https://honors.libraries.psu.edu/files/final_submissions/5043">PDF</a>
+                <a class="button-item button-page" href = "https://honors.libraries.psu.edu/catalog/5077abc5462">Page</a>
             </li> 
         </ul>
 
@@ -125,13 +152,13 @@
          <div class="subtitle-center">Projects</div>
          <ul style = "text-align: left;font-size:1.1em">
             <li>E-Commerce Web App, <b>YABE</b>, Spring 2018
-            [<a href = "https://yabe2018.azurewebsites.net">Web App Demo!</a>]
-            [<a href = "https://github.com/cuiaiyu/YABE2018">Source Code</a>]
-            [<a href = "https://github.com/cuiaiyu/YABE2018/blob/master/YaBeReport.pdf">Report</a>]
+                <a class="button-item button-demo" href = "https://yabe2018.azurewebsites.net">Web App Demo!</a>
+                <a class="button-item button-page" href = "https://github.com/cuiaiyu/YABE2018/blob/master/YaBeReport.pdf">Report</a>
+                <a class="button-item button-sourcecode" href = "https://github.com/cuiaiyu/YABE2018">Source Code</a>
             </li> 
              <li>Transfer Learning CNN, <b>Animal Classification</b>, Spring 2017
-            [<a href = "TransferLearning2017Spring.html">Page</a>]
-            [<a href = "https://github.com/cuiaiyu/transferLearningCNN">Source Code</a>]
+                <a class="button-item button-page" href = "TransferLearning2017Spring.html">Page</a>
+                <a class="button-item button-sourcecode" href = "https://github.com/cuiaiyu/transferLearningCNN">Source Code</a>
             </li> 
         </ul>
 
