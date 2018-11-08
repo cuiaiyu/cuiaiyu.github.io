@@ -98,6 +98,9 @@
     .button-paper{
         background-color: #2eb82e;
     }
+    .button-na{
+        background-color: #000000;
+    }
 </style>
 
 <link rel="stylesheet" type="text/css" href="content/general_bio.css" />
@@ -113,11 +116,11 @@
         <div class="Bio">
             <img class="bio-photo" src="images/myPhoto.jpg" /><br /><br />
             
-            <p><b>aiyucui2 [at] illinois [dot] edu </b></p>
+            <p><b>aiyucui2 [at] illinois.edu </b></p>
             <b>&#x221e;&#x221e;&#x221e;&#x221e;&#x221e;</b><br />
             <div class="bio-content">
                 <p>I am a first year CS <u>PhD student</u> working with 
-                <a href="http://slazebni.cs.illinois.edu/">Prof. Lana Lazebnik</a> at <u>University of Illinois at Urbana-Champaign</u> in <a href="http://vision.cs.illinois.edu/vision_website/">Computer Vision Group @ UIUC</a>. </p>
+                <a href="http://slazebni.cs.illinois.edu/">Prof. Lana Lazebnik</a> at <b><u>University of Illinois at Urbana-Champaign</u></b> in <a href="http://vision.cs.illinois.edu/vision_website/">Computer Vision Group @ UIUC</a>. </p>
                 
                 <p>Before that, I spent wonderful two years with
                  <a href="http://www.cse.psu.edu/~rtc12">Prof. Bob Collins</a>
@@ -127,41 +130,96 @@
                  <a href="http://vision.cse.psu.edu/home/home.shtml"> Laboratory for Peception, Action and Cognition (LPAC)</a>
                  at <u>Penn State University </u>(WE ARE!), where I got my <u>B.S.</u> in Computer Science with Honor. 
                  </p>
-                 <p>I am specifically interested in topics related to <u>Computer Vision</u>.</p>
+                 <p>I am specifically interested in topics related to <b>Computer Vision</b> and <b>Deep Learning</b>.</p>
             </div>
             <b>&#x221e;&#x221e;&#x221e;&#x221e;&#x221e;</b><br />
             <a  class="button" href="AiyuCui_Resume_092118_3dHuman.pdf" style = "font-size:1.1em;background-color:#FF5733"><b>Resume/CV</b></a> | 
-            <a  class="button" href="#pubs" style = "font-size:1.1em;background-color:#2eb82e""> <b>Research</b></a> |
-             <a  class="button" href="#projs" style = "font-size:1.1em;background-color:#2eb82e""> <b>Projects</b></a> |
-             <a  class="button" href="https://github.com/cuiaiyu" style = "font-size:1.1em;background-color:#008fb3"> <b>Github</b></a> |
-            <a  class="button" href="mailto:aiyucui2@illinois.edu" style = "font-size:1.1em;background-color:#008fb3"><b>Contact</b></a> 
+             <a  class="button" href="https://github.com/cuiaiyu" style = "font-size:1.1em;background-color:#008fb3"> <b>Github</b></a>  
             <br />
         </div>
 
         <a name="pubs"></a>
          <div class="subtitle-center">Research</div>
-         <ul style = "text-align: left;font-size:1.1em">
-            <li>Undergrad Honor Thesis, <b>Mutiple Object Tracking</b>
+            <table>
+            <tr style='margin:5%'>
+            <td width="25%"><img src='images/TLL.png' width=170px height=170px></td>
+            <td valign="top" width="75%" style = "text-align: left;font-size:1.1em">
+                <strong>Non-trivial Image Similarity Detection </strong> <br />
+                <div style = "text-align: left;font-size:0.95em">
+                 <i> supervised by <a href="http://slazebni.cs.illinois.edu/">Svetlana Lazebnik</a>, 2018 - present
+                                 <a class="button-item button-demo" href = "http://tllvisualizer2018.azurewebsites.net/">Web</a>
+                                <a class="button-item button-na" href = "">Not Public Available Yet</a></i>
+                <br />
+                 <p>We try to find similarity with respect to different criteria by deep neural net and better understand how deep neural nets perceive images. As realized, many similarities can be captured by human easily but not machines, we want to find a way to help machines learn how human truly comprehend the visual similarity.
+                 </p>
+                 </div>
+            </td></tr>
+
+            <tr>
+            <td width="25%"><img src='images/Taiji_comparison.png' width=170px height=170px></td>
+            <td valign="top" width="75%" style = "text-align: left;font-size:1.1em">
+                <strong>Quaternion-based Keypose Analysis of Long 3D Activity Sequences</strong> <br />
+                <div style = "text-align: left;font-size:0.95em">
+                <i> supervised by <a href="http://www.cse.psu.edu/~rtc12">Robert Collins</a>
+                and <a href="http://www.cse.psu.edu/~yul11/">Yanxi Liu</a>, 2017-2018 </i>
+                <a class="button-item button-na" href = "">Not Public Available Yet</a>
+                <br />
+                 <p>We apply quaternion-PCA to analysize long, scripted Taiji activity sequences (3D human represented by key points), we experiment on activity classification, temporal detection of keyposes and forms, temporal alignment and quantitative comparison of performances across subjects with PCA based methods. 
+                 </p>
+                 </div>
+            </td></tr>
+
+            <tr>
+            <td width="25%"><img src='images/MOT.png' width=170px height=170px></td>
+            <td valign="top" width="75%" style = "text-align: left;font-size:1.1em">
+                <strong>Mutiple Object Tracking</strong> <br />
+                <div style = "text-align: left;font-size:0.95em">
+                <i> supervised by <a href="http://www.cse.psu.edu/~rtc12">Robert Collins</a>, 2017-2018, Undergrad Thesis </i>
                 <a class="button-item button-paper" href = "https://honors.libraries.psu.edu/files/final_submissions/5043">PDF</a>
-                <a class="button-item button-page" href = "https://honors.libraries.psu.edu/catalog/5077abc5462">Page</a>
-            </li> 
-        </ul>
-        <ul style = "text-align: left;font-size:1.1em">
-            <li>To Be Added. Working on organizing it...</b>
-            </li> 
-        </ul>
+                <br />
+                 <p>I invented a tracking algorithm to clean long-time raw motion capture sequences, which can speed up MoCap data cleaning process 20 times by Kalman filter and encoding human body constraints as references. This algorithm also has potentials to fill gaps caused by missing data points during recording. 
+                 </p>
+                 </div>
+            </td></tr>
+
+
+        </table>
+       
+
+
 
         <a name="projs"></a>
-         <div class="subtitle-center">Projects</div>
+         <div class="subtitle-center">Deep Learning Projects</div>
          <ul style = "text-align: left;font-size:1.1em">
-            <li>E-Commerce Web App, <b>YABE Shopping & Bidding</b>, Spring 2018
-                <a class="button-item button-demo" href = "https://yabe2018.azurewebsites.net">Web Demo!</a>
-                <a class="button-item button-page" href = "https://github.com/cuiaiyu/YABE2018/blob/master/YaBeReport.pdf">Report</a>
-                <a class="button-item button-sourcecode" href = "https://github.com/cuiaiyu/YABE2018">Source Code</a>
+         <li >Deep learning projects</b>, Fall 2018 <br />
+                <ul style='font-size:0.9em'>MLP from scratch (numpy)
+                <a class="button-item button-sourcecode" href = "https://github.com/cuiaiyu/DeepLearningCourseProjects/tree/master/mlp_fromScratch_numpy">Source Code</a> &#09;</ul>
+                <ul style='font-size:0.9em'>CNN from scratch (numpy)
+                <a class="button-item button-sourcecode" href = "https://github.com/cuiaiyu/DeepLearningCourseProjects/tree/master/cnn_fromScratch_numpy">Source Code</a> &#09;</ul>
+                <ul style='font-size:0.9em'>CNN from scratch (pytorch)
+                <a class="button-item button-sourcecode" href = "https://github.com/cuiaiyu/DeepLearningCourseProjects/tree/master/cnn_fromScratch_pytorch">Source Code</a></ul>
+                <ul style='font-size:0.9em'>ResNet from scratch (pytorch)
+                <a class="button-item button-sourcecode" href = "https://github.com/cuiaiyu/YABE2018">Source Code</a> </ul>
+                <ul style='font-size:0.9em'>Deep ranking (pytorch)
+                <a class="button-item button-sourcecode" href = "https://github.com/cuiaiyu/DeepLearningCourseProjects/tree/master/deepRanking">Source Code</a> </ul>
+                <ul style='font-size:0.9em'>GAN analysis (pytorch)
+                <a class="button-item button-sourcecode" href = "https://github.com/cuiaiyu/DeepLearningCourseProjects/tree/master/resnet_fromSratch_pytorch">Source Code</a></ul>
+
             </li> 
+            
              <li>Transfer Learning CNN, <b>Animal Classification</b>, Spring 2017
                 <a class="button-item button-page" href = "TransferLearning2017Spring.html">Page</a>
                 <a class="button-item button-sourcecode" href = "https://github.com/cuiaiyu/transferLearningCNN">Source Code</a>
+            </li> 
+             
+             
+             
+        </ul>
+        <a name="write-ups"></a>
+         <div class="subtitle-center">Write-ups</div>
+         <ul style = "text-align: left;font-size:1.1em">
+            <li>Course Scribes (<a  href = "https://courses.engr.illinois.edu/ece544na/fa2018/_site/">ECE544-fall18-UIUC</a>), <b>Generative Adversarial Nets</b>, Fall 2018
+                <a class="button-item button-page" href = "pdfs/ECE544_Scribe21_Aiyu.pdf">notes(PDF)</a>
             </li> 
              
              
@@ -171,6 +229,11 @@
         <a name="misc"></a>
          <div class="subtitle-center">Misc.</div>
          <ul style = "text-align: left">
+            <li>I wrote a E-Commerce Web App for my undergrad capstone.
+                <a class="button-item button-demo" href = "https://yabe2018.azurewebsites.net">Web Demo!</a>
+                <a class="button-item button-page" href = "https://github.com/cuiaiyu/YABE2018/blob/master/YaBeReport.pdf">Report</a>
+                <a class="button-item button-sourcecode" href = "https://github.com/cuiaiyu/YABE2018">Source Code</a>
+            </li> 
             <li>Check out my <b>random art work</b>! - <a href="https://www.instagram.com/aiyucay/">My Instagram</a></li> 
             <li>Wanna know some Taiji?  - <a href="http://sites.psu.edu/taiji/">Penn State Taiji Club</a></li> 
             <li>You might look for my sister <a href="https://acui34.github.io">Aiqi Cui</a>, the CMU ML girl. ;-) </li>
