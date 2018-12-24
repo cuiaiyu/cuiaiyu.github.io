@@ -105,13 +105,14 @@
                         <p>There are two cleaned subsets: no_duplicate subset and no_face subset. As the dataset is collected from a popular entertainment website, there are many duplicates among the 2x6,016 images which hurts the accuracy of retrieval results. Thus no_duplicates is a subset of the full TLL dataset with all duplicates removed, which has 1,828 images remaining. Meanwhile, as noticed there are a large poriton of faces images in the TLL dataset, another subset, called no_face subset, is provided as all faces and duplicates are removed, which resulted in 1,622 pairs remaining. More details about the subset selection process refers to <a href=" https://sites.google.com/view/totally-looks-like-dataset
 ">Totally-Look-Like Dataset [1].</a></p>
 						<p>Since TLL dataset is relatively small, we use the entire TLL dataset to test our models only.</p>
+
 						<h4>ILSRVC 2012 [8]</h4>
-						<p><a href="http://image-net.org/challenges/LSVRC/2012/">ILSRVC 2012 (ImageNet)</a> is the version of ImageNet we used. In this project, if we say a "pre-trained" model, we means a model pre-trained on this dataset. ILSRVC 2012 has 1,000 classes and 1.2 millions images for training and 150,000 images for testing. In this project, when we joint training on top of the pre-trained models, we random selected images from the training set. We use the entire validation set for the evaluation.</p>
+						<p><a href="http://image-net.org/challenges/LSVRC/2012/">ILSRVC 2012 (ImageNet)</a> is the version of ImageNet we used. In this project, if we say a "pre-trained" model, we means a model pre-trained on this dataset. ILSRVC 2012 has 1,000 classes and 1.2 millions images for training and 150,000 images for testing. In this project, when we joint training on top of the pre-trained models, we random selected images from the training set. We use a 50,000 validation set for evaluation.</p>
                         <h4>The Behance Art Media Dataset (BAM) [5]</h4>
                         <p><a href='https://bam-dataset.org/'>The Behance Art Media Dataset (BAM) [5]</a> is art dataset built from Behance, a portfolio website of professional and commerical artist. Artwork in BAM includes painting, photography, graphic design, comic, oil plant, water color, and etc. 
                         As we noticed that there are many art work in TLL dataset, we choose BAM to finetune/joint-training/<a href='https://ieeexplore.ieee.org/abstract/document/8107520/'>LwF [6]</a> our ImageNet pre-trained models to get them familar with art features.</p>
 
-                        <p>We only use the nine object labels (bicycle, bird, building, cars, cat, dog, flower, people and tree) in BAM. After preprocessing, we have xxx images for training and xx images for test in our experiments.</p>
+                        <p>We only use the nine object labels (bicycle, bird, building, cars, cat, dog, flower, people and tree) in BAM. After preprocessing (random split with train:val:test=8:1:1), we have 60,353 images for training and 7,566 images for test for our experiments.</p>
                         <h4>BroDen</h4>
                         <p><a href='https://arxiv.org/abs/1704.05796'>BroDen [7]</a> dataset is the dataset IBD used to train the base vectors of visual concepts. It has fine-grained (pixel or image level) labels for visual concepts fall in categories objects, parts, scenes, textures, colors and materials.</p>
                   </div>
@@ -157,7 +158,7 @@
                             </tr>
 
                              <tr>
-                            <td>BAM LwF joint-trained with ILSRVC2012</td>
+                            <td>BAM joint-trained with ILSRVC2012</td>
                             <td>25.53% | 8.03%</td><td>31.64%|11.18%</td><td>83.28% | 36.34%</td><td>11.63% | 0.33%</td>
                             </tr>
 
@@ -166,6 +167,7 @@
                             </table>
                             <br /> Table 0: Error Rate (@1 | @5) of DenseNet-121 models we trained. Pytorch built-in DenseNet-121 were used for pre-trained models.
                             </div>
+                            <p>The qualitive result of joint training can be visualized at <a href="http://tllvisualizer2018.azurewebsites.net"> TLL Retrieval Demo</a> for all the above models. (this one may requires log-in.)</p>
 
 
 
@@ -388,7 +390,7 @@
 						
 						<h4>Training by Classification Task</h4>
 						<p>Alternatively, the first training we tried is to perform a classification task. We use proposed network to joint-train data from ILSRVC 2012 and BAM and to enable the conditional layers to learn different concepts. Model is shown in Figure 3.
-						Here we report experiment result by setting # of conditional branch M = 4. quantatitive result is below. The qualititive result can be visualized at <a href=""> TLL Retrieval Demo</a>.
+						Here we report experiment result by setting # of conditional branch M = 4. quantatitive result is below. The qualitive result can be visualized at <a href="http://tllvisualizer2018.azurewebsites.net/k_subspace"> TLL Retrieval Demo</a>.
 						
 						<div style='text-align: center;font-size: 80%'>
 						<img src="images/TLLReport/ConditionalClassifier1.PNG" style="width:60%;align-self:center" alt="" caption="aljda">
@@ -440,7 +442,7 @@
                         
                         <h4>Training by Similarity Triplet</h4>
                         <p>As the original Conditional Similarity Network and CITE are trained as similarity network and triplet are used there. We want to train our proposed network with similarity triplet to see whether it could improve the performance. We adjust our architecture as shown in Figure 5. </p>
-                        <p>In our experiment, we use BAM and ILSRVC dataset. For each dataset, we sample triplet as (query image, random image from the same category, and random image from another category). We report the experiment results with M=4. Same as earlier, the quantatitive result is below and the qualitive result can be found on Demo Web.</p>
+                        <p>In our experiment, we use BAM and ILSRVC dataset. For each dataset, we sample triplet as (query image, random image from the same category, and random image from another category). We report the experiment results with M=4. Same as earlier, the quantatitive result is below and the qualitive result can be visualized at <a href="http://tllvisualizer2018.azurewebsites.net/k_subspace"> TLL Retrieval Demo</a>.</p>
 
 						<div style='text-align: center;font-size: 80%'>
 						<img src="images/TLLReport/ConditionalSimi1.PNG" style="width:60%;align-self:center" alt="" caption="aljda">
@@ -599,7 +601,7 @@
                             </table>
                             Table 8: General Recall with Naive Conbination by classification task of all trials.n task and similarity triplet task.
                             </div>
-
+                            <p>The qualitive result can be visualized at <a href="http://tllvisualizer2018.azurewebsites.net/k_subspace"> TLL Retrieval Demo</a> for all the above models.</p>
                             <p>Here, we introduce a new metrics to evaluate how separate the conditional branchs are. Known the more similar two conditional branchs are, they will give more similar embeddings and thus the more overlap will be with their retrieval result. Thus, we use the following formula to measure the overlap of the retrieval results, which can indicate how different each pairs of conditional branch are. The Average Overlap is defined as sum_i(# overlaps over retrieval results out of ALL conditional branchs in top K results)/N, where N is the dataset size. </p>
 
 
@@ -671,10 +673,7 @@
 							<p>The topic of Interpretable Basis Decomposition itself or just the semantic decomposition in latent space seems very interesting and not well explored yet. There are still many interesting questions with IBD, such as the independences of the visual concepts conponents, the large residuals of the decomposition or the representing ability of visual concepts conponent encoding. 
 							Besides, the semantic decompostion in latent spaces might have more application than just visualization. It may be generalized to image synthesis, multi-task training or any multiple concepts involved task?</p>
 						</div>
-						<div>
-							<h3>Other Insight</h3>
-							<p>TBD</p>
-						</div>   
+
                     </div>
             </section>
 
