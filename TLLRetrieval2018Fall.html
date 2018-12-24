@@ -48,7 +48,7 @@
                 </li>
 
                 <li>
-                    <a href="#References"><span class="glyphicon glyphicon-file" aria-hidden="true"></span>References</a>
+                    <a href="#references"><span class="glyphicon glyphicon-file" aria-hidden="true"></span>References</a>
                 </li>
             </ul>
         </div>
@@ -63,13 +63,13 @@
                 <div class="section_title">
                     <h2><strong>Introduction</strong></h2>
                     <div class="section_body">
-                        <p>Similarity Retrieval has been a hot topic in Computer Vision field for decades. Here we will focus on a non-trivial similarity retrieval, in which images are retrieved through a particular visual concepts based similarity rather than through a category-based similarity, as shown in Figure 0. 
+                        <p>Similarity Retrieval has been a hot topic in Computer Vision field for decades. Here we will focus on a non-trivial similarity retrieval, in which images are retrieved through a particular visual-concept-based similarity rather than through a category-based similarity, as shown in Figure 0. 
 <a href=" https://sites.google.com/view/totally-looks-like-dataset
-">Totally-Look-Like Dataset [1]</a> is a new dataset first introduced in ACCV 2018 and this project will be evaluated based on Totally-Look-Like Dataset (TLL). </p>
-                        <p>In this work, we first reimplement and adjust the TLL baseline. Then, we noticed that the baseline-like methods (using deep net feature directly) can retreve the category-based similarity well, which is sentitive to the between-class difference of training set but not sensitive in general visual concept based similarity that we are interested. </p>
+">Totally-Look-Like Dataset [1]</a> is a new dataset first introduced in ACCV 2018 and this project will be evaluated on Totally-Look-Like Dataset (TLL). </p>
+                        <p>In this work, we first reimplement and adjust the TLL baseline. Then, we noticed that the baseline-like methods (using deep net feature directly) can retreve the category-based similarity well. However, although it is sentitive to the between-class difference of training set, it is not sensitive in general visual-concept-based similarity that we are interested. </p>
                         <p>Thus, on top of the baseline-like method, we tried several ways to retrieve image similarity with respect to different visual concepts. With inspiration from both 
                         <a href="http://openaccess.thecvf.com/content_cvpr_2017/papers/Veit_Conditional_Similarity_Networks_CVPR_2017_paper.pdf">Conditional Similarity Network (CSN) [2]</a> and 
-                        <a href="https://arxiv.org/abs/1711.08389">Conditional Image-Text Embedding (CITE) [3]</a>, we train a neural network which can learn conditional embeddings by decomposing the original embeddings output from the deep net. Therefore, each conditional embedding could represent a different visual concept, from which we can later retrieve similarity. Besides to learn visual concepts via conditional embedding in a unsupervised way, we also discuss the potential to learn semantic concepts in a supervised way as what is introduced in <a href="http://people.csail.mit.edu/bzhou/publication/eccv18-IBD">Interpretable Basis Decomposition (IBD) [4]</a></p>
+                        <a href="https://arxiv.org/abs/1711.08389">Conditional Image-Text Embedding (CITE) [3]</a>, we train neural networks which can learn conditional embeddings by decomposing the original embeddings output of the deep net. Therefore, each conditional embedding could represent a different visual concept, from which we can retrieve similarity later on. Besides to learn visual concepts via conditional embedding in a unsupervised way, we also discuss the potential to learn semantic concepts in a supervised way as what is introduced in <a href="http://people.csail.mit.edu/bzhou/publication/eccv18-IBD">Interpretable Basis Decomposition (IBD) [4]</a></p>
                     </div>
                     <div style='text-align: center;font-size: 80%'>
 							<img src="images/TLLReport/TLLEx.PNG" style="width:60%;align-self:center" alt="" caption="aljda">
@@ -77,42 +77,44 @@
 ">[1]</a>
 						</div>
 
-                    <h3><strong>Brief Literature Review</strong></h3>
+                    <h3 id='review'><strong>Brief Literature Review</strong></h3>
                     <div class="section_body">
-                        This work is inspired by several work, here we are going to give a brief recall of each of them.
+                        This project is mainly inspired by several work, here we are going to give a brief recall of each of them.
                         <h4>TLL</h4>
                         <p><a href=" https://sites.google.com/view/totally-looks-like-dataset
 ">Totally-Look-Like Dataset [1]</a> is a new dataset first introduced in ACCV 2018. The dataset contains visually similar pair-images, which are collected from a popular entertainment website. 
-                        The proposed task of this dataset is image retrieval. each pair is divided into left and right set, such that one image goes to the left set and the other goes to the right. Given a query image from the left set, we want to find the most similar image from the right set or a subset of the right set. 
-                        The proposed baseline method is to extract image features from the last activation layer from a deep net and use those features to compute cosine distance. The image retrieval is then considered as a latent space data point distance comparison problem.</p>
+                        The proposed task of this dataset is image retrieval. each pair in the dataset is divided into left and right set, such that one image goes to the left set and the other goes to the right. Given a query image from the left set, we want to find its coresponding pair as the most similar image from the right set or a subset of the right set. 
+                        The proposed baseline method is to extract image features from the last activation layer of a deep net and use those features to compute cosine distance. The image retrieval is then considered as a latent space data point distance comparison problem.</p>
 
                         <h4>CSN and CITE</h4>
                         <p><a href="http://openaccess.thecvf.com/content_cvpr_2017/papers/Veit_Conditional_Similarity_Networks_CVPR_2017_paper.pdf">Conditional Similarity Network (CSN) [2]</a> and 
-                        <a href="https://arxiv.org/abs/1711.08389">Conditional Image-Text Embedding Network(CITE) [3]</a> are two work that train a neural network which can learn how to decompose a union concept. </p>
-                        <p>CSN tries to retrieve image similarity based on different visual concepts (e.g., clothing categories, clothing occassion and clothing colors.) It trains several notion branchs in parallel and M mask such that each unit on a mask can behave like a gate to decide whether use a certain notion to retrieve concept m. Triplet are sampled based on every concept m to perform a well-defined supervised learning.</p>
-                        <p>CITE tries to learn group text with similar semantic meaning in the latent space in an implicit way by conditional or concept embedding layers. Rather use predefined clusters (like clothing categories and etc in previous), CITE introduces a conditional branch to learn a weight vectors which behaves like a gate to decide how much each output of the conditional layers participate in the final prediction. Both the conditional layers and the weight branch can be learned during training. </p>
+                        <a href="https://arxiv.org/abs/1711.08389">Conditional Image-Text Embedding Network(CITE) [3]</a> 
+                        are two work that train a neural network which can learn how t use a single NN architecture to learn multiple decomposed concepts of a union concepts. </p>
+                        <p>CSN tries to retrieve image similarity based on different visual concepts (e.g., clothing categories, clothing occassion and clothing colors.) It trains several notion branchs in parallel and M mask such that each unit on a mask can behave like a gate to decide whether to use a certain notion to retrieve concept m or not. Triplets are sampled based on every concept m in order to perform a well-defined supervised learning.</p>
+                        <p>CITE tries to learn group text with similar semantic meaning in latent space in an implicit way by conditional or concept embedding layers. Rather than use predefined clusters (like clothing categories and etc in previous), CITE introduces a conditional branch to learn a weight vector which behaves like a gate to decide how much each output of the conditional layers participates in the final prediction. Both the conditional layers and the weight branch can be learned during training. </p>
 
                         <h4>IBD</h4>
-                        <p> <a href="http://people.csail.mit.edu/bzhou/publication/eccv18-IBD">Interpretable Basis Decomposition (IBD) [4]</a> is a method proposed in ECCV 2018 to visualize the behaviors of neural network. It could decompose a prediction from a neural network in a form as the sum of comtribution of a set of base concepts. This is say, IBD provides a way to decompose a prediction into a set of basis vectors such that each base vector representing a basic visual concepts (objects, parts, color, textures, scenes, and etc). This is potential useful to us, if we want to decompose our embeddings and perform the retrieval based different visual concepts. </p>
+                        <p> <a href="http://people.csail.mit.edu/bzhou/publication/eccv18-IBD">Interpretable Basis Decomposition (IBD) [4]</a> is a method proposed in ECCV 2018 to visualize the behaviors of neural network. It could decompose a prediction from a neural network in a form as the sum of comtribution of a set of base concepts. This is to say, IBD provides a way to decompose a prediction into a set of basis vectors such that each base vector representing a basic visual concepts (objects, parts, color, textures, scenes, and etc). This is potentially helpful to us, if we want to decompose our embeddings and perform the retrieval based different visual concepts. </p>
                   </div>
 
-                    <h3><strong>Dataset</strong></h3>
+                    <h3 id='dataset'><strong>Dataset</strong></h3>
                     <div class="section_body">
                         Here, we briefly introduce the dataset used or potentially useful for this project.
                         <h4>Totally-Look-Like Dataset</h4>
 
                         <p>The main dataset we used to evaluate our method. We are going to perform the image retrieval on the TLL dataset. TLL dataset contains 6,016 pairs of images, such that each images similar in a way based on general visual concepts rather than category-based similarity, as shown in Figure 0. </p>
-                        <p>There are two cleaned subsets: no_duplicate subset and no_face subset. As the dataset is collected from a popular entertainment website, there are many duplicates among the 2x6,016 images which hurts the accuracy of retrieval results. Thus no_duplicates is a subset of the full TLL dataset with all duplicates removed, which has 1,828 images remaining. Meanwhile, as noticed there are a large poriton of faces images in the TLL dataset, another subset, called no_face subset, is provided as all faces and duplicates are removed, which resulted in 1,622 pairs remaining. More details about the subset selection process refers to <a href=" https://sites.google.com/view/totally-looks-like-dataset
+                        <p>There are two cleaned subsets: no_duplicate subset and no_face subset. As the dataset is collected from a popular entertainment website, there are many duplicates among the 2x6,016 images, which hurts the accuracy of retrieval results. Thus, no_duplicates is a subset of the full TLL dataset with all duplicates removed, which has 1,828 images remaining. Meanwhile, as noticed, there are a large poriton of faces images in the TLL dataset, another subset, called no_face subset, is provided as all faces and duplicates are removed, which resulted in 1,622 pairs remaining. More details about the subset selection process refers to <a href=" https://sites.google.com/view/totally-looks-like-dataset
 ">Totally-Look-Like Dataset [1].</a></p>
 						<p>Since TLL dataset is relatively small, we use the entire TLL dataset to test our models only.</p>
 
 						<h4>ILSRVC 2012 [8]</h4>
-						<p><a href="http://image-net.org/challenges/LSVRC/2012/">ILSRVC 2012 (ImageNet)</a> is the version of ImageNet we used. In this project, if we say a "pre-trained" model, we means a model pre-trained on this dataset. ILSRVC 2012 has 1,000 classes and 1.2 millions images for training and 150,000 images for testing. In this project, when we joint training on top of the pre-trained models, we random selected images from the training set. We use a 50,000 validation set for evaluation.</p>
+						<p><a href="http://image-net.org/challenges/LSVRC/2012/">ILSRVC 2012 (ImageNet)</a> is the version of ImageNet we used. In this project, if we say a "pre-trained" model, we mean a model pre-trained on this dataset. ILSRVC 2012 has 1,000 classes and 1.2 millions images for training and 150,000 images for testing. In this project, when we do joint training on top of the pre-trained models, we random selected images from the training set. We use a 50,000 image validation set for evaluation.</p>
+
                         <h4>The Behance Art Media Dataset (BAM) [5]</h4>
                         <p><a href='https://bam-dataset.org/'>The Behance Art Media Dataset (BAM) [5]</a> is art dataset built from Behance, a portfolio website of professional and commerical artist. Artwork in BAM includes painting, photography, graphic design, comic, oil plant, water color, and etc. 
                         As we noticed that there are many art work in TLL dataset, we choose BAM to finetune/joint-training/<a href='https://ieeexplore.ieee.org/abstract/document/8107520/'>LwF [6]</a> our ImageNet pre-trained models to get them familar with art features.</p>
-
                         <p>We only use the nine object labels (bicycle, bird, building, cars, cat, dog, flower, people and tree) in BAM. After preprocessing (random split with train:val:test=8:1:1), we have 60,353 images for training and 7,566 images for test for our experiments.</p>
+                        
                         <h4>BroDen</h4>
                         <p><a href='https://arxiv.org/abs/1704.05796'>BroDen [7]</a> dataset is the dataset IBD used to train the base vectors of visual concepts. It has fine-grained (pixel or image level) labels for visual concepts fall in categories objects, parts, scenes, textures, colors and materials.</p>
                   </div>
@@ -129,8 +131,9 @@
                     <h2>
                         <strong>Retrieval Baseline</strong></h3>
                         <div class="section_body">
-                            <p>In this project, we choose DenseNet-121 [9], the model gives the best performance among the TLL's proposed baseline, as our backbone. We first implement TLL Baseline proposed in the original TLL Paper and then we add BAM dataset by fine-tuning, LwF, and joint training to improved the pre-trained DenseNet-121's recognition ability. There are two baselines provided by the original TLL paper as mentioned in pervious sections and we will introduce both of them in the following. </p>
-                            <p>Before starting, the training error of all the models we trained is in Table 0. Also, we give a sample architecture figure of joint-training model. All other methods have very similar architecture.</p>
+                            <p>In this project, we choose DenseNet-121 [9], the model gives the best performance among the TLL's proposed baseline, as our backbone. 
+                            We first implement TLL baseline proposed in the original TLL Paper and then we add BAM dataset by fine-tuning, LwF, and joint training to improved the pre-trained DenseNet-121's recognition ability. There are two baselines provided by the original TLL paper. We will introduce both of them in the following. </p>
+                            <p>Before starting, the training error of all the models we trained is shown in Table 0. Also, we give a sample architecture figure of joint-training model. All other methods have very similar architecture.</p>
                             <div style='text-align: center;font-size: 80%'>
 							<img src="images/TLLReport/BaselineModel.PNG" style="width:60%;align-self:center" alt="" caption="aljda">
 							<br />Figure 1: Example Baseline Architecture. (joint training)
@@ -174,8 +177,9 @@
                             
                             <div>
                             <h3>General Recall Baseline</h3>
-                            <p>Say, we have N pairs of TLL images¬, we divide them into a left set and a right set, such that for every pair, one image goes the left set and the other one goes the right set. In this way, the left set (size N) and the right set (size N) have a one-to-one mapping. When we perform the similarity retrieve, we are given a query image selected from the left set we want to find the its correct paired image from the right set. If the correct image is the first retrieval result, we call it find it in top 1, and etc.</p> 
-                            <p>The original proposed method uses a deep neural net (ResNet or DenseNet) to extract features from input images by using the output of last activation layer. Then, for it computes the cosine distance for every possible pairs. The more similar two images are, the smaller the distance between their embedding is. Thus, for every query image, we will return a list of N images ordered by their distances from the query images (in the embedding space). If the ground truth paired image is found in the first to the k-th retrieval results, we call it “find in top k result”.</p>
+                            <p>Say, we have N pairs of TLL images, we divide them into a left set and a right set, such that for every pair, one image goes the left set and the other one goes the right set. In this way, the left set (size N) and the right set (size N) have a one-to-one and onto mapping. When we perform the similarity retrieval, we are given a query image selected from the left set we want to find the its correct paired image from the right set. If the correct image is the k-th retrieval result, we call it find it in top k.</p> 
+                            <p>The original proposed method uses a deep neural net (ResNet or DenseNet) to extract features from input images by using the output of last activation layer. Then, it computes the cosine distance for every possible pairs. The more similar two images are, the smaller the distance between their embeddings is. Thus, for every query image, we will return a list of N images ordered by their distances from the query image (in the embedding space). If the ground truth paired image is found in the first to the k-th retrieval results, we call it “find in top k result”, which is the general recall.</p>
+
                             <p>The original paper explores many deep neural net to extract the features and it turned out that DenseNet-121 will give the best result. Therefore, we will only reimplement this general recall by using DenseNet-121 and our following work will use DenseNet-121 as backbone too.</p>
                             <p>Here we report our self-implement retrieval based on DenseNet-121. For some reason, we couldn’t give the same result stated in the original paper. However, we decided not to spend too many time on it, because we believe our results make enough sense.</p>
                             
@@ -265,7 +269,7 @@
 							
 							<div>
 							<h3> Associative Recall Baseline</h3>
-							<p>Another evaluation protocol introduced in the original paper is associative recall. Rather than try to find the most similar image from the ENTIRE right set as general recall does, here we are only interested in finding the correct answer from five images which are reasonably selected from the entire right set. The correct answer will be guaranteed to be included in the five options and the other distractors are randomly selected from the top K results of the general recall. Notice here, if K=N, then the distractors are equivalent to random selected from the entire right set.</p>
+							<p>Another evaluation protocol introduced in the original paper is associative recall. Rather than try to find the most similar image from the ENTIRE right set as what general recall does, here we are only interested in finding the correct answer from a five-image subset which are reasonably selected from the entire right set. The correct answer will be guaranteed to be included in the five options and the other distractors are randomly selected from the top K results of the general recall. Notice here, if K=N, then the distractors are equivalent to random selected from the entire right set.</p>
 							<p>Here we report results on No_Face subset. In all below experiments, we selected distractors by ranking similarity from DenseNet-121 features distances (cosine).</p>
 							<div style='text-align: center;font-size: 80%'>
 							<table class='table' style='text-align: left;font-size: 120%' >
@@ -313,8 +317,8 @@
                             </table>
                             <br /> Table 3: Associative Recall Baseline on TLL Retrieval with No_Face Subset. Model from scratch are training on BAM. Others are training from ILSRVC 2012 to BAM.
                             </div>
-                            <p>Note, here is a serious problem with associate recall when the distactor is not randomly selected from the entire dataset. As how associative recall is defined, if the distracted selected from top K similar images from the DenseNet-121 features, it is naturally hard for the models trained on top of DenseNet-121 to perform retrieval. Thus, the more different from DenseNet-121, the models are, the higher recall rate it can reach, when K is small. This is why the model trained from scratch of BAM give a very good recall number when K=5, but other models beat it when K gets larger. </p>
-                            Thus, it is reasonable to believe that only distractors randomly selected from the dataset(K=N) could give a fair evaluation of the performance of models. Thus, in the following we will only use associative recall with K=N (i.e., distractors are toally randomly selected). 
+                            <p>Note, here is a serious problem with associate recall when the distactor is not randomly selected from the ENTIRE dataset. As how associative recall is defined, if the distracted selected from top K similar images from the DenseNet-121 features, it is naturally hard for the models trained on top of DenseNet-121 to perform retrieval. Thus, the more different from DenseNet-121, the models are, the higher recall rate it can reach, when K is small, because there are more randomness. This is why the model trained from scratch of BAM give a very good recall number when K=5, but other models beat it when K gets larger. </p>
+                            Thus, it is reasonable to believe that only distractors randomly selected from the entire dataset(K=N) could give a fair evaluation of the performance of models. Thus, in the following, we will only use associative recall with K=N (i.e., distractors are toally randomly selected). 
 							</div>
 
 							<div>
@@ -338,8 +342,10 @@
                         <div>
                         <h3>Evaluation Metrics</h3>
                         <p>Before we go through our trials, I am going to introduce how we combine the retrival results given from each concept branch and get the final recall (i.e., how to decide which branch (which concepts/which kind of similarity) to refer to for every image.) </p>
+
                         <h4>Naive Combination (White box)</h4>
                         <p>This evaluation will give us the upper bound of model performances. For every given image, if there are M conditional branch such that every branch learns a different visual concepts, we do M retrieval based on features extracted from the M branchs. If the true paired image is found at k-th retrieval results of any of branchs, we use the smallest k as the combined result. For example, if there are four branchs, and the restrieval results for image with index 2 are (i=2,k=1), (i=2,k=3), (i=2,k=5), and (i=2,k=801) respectively, the combined result would be k=1. 
+                        
                         <h4>Auto Combination (Black box)</h4>
                         <p>Since using ground truth to decide which branch to refer to for every image is kind of cheating, here we introduce an automatic way to decide which retrieval branch to follow. By this auto combination method, we will choose the branch that gives the smallest distances. Recall, we retrieve similarity based on the cosine distance of the embeddings of two images. Therefore, for every image and every branch, we will get a distance. Thus, the conbined result will be result out of the m-th branch if the m-branch gives the smallest embedding distances of the query image and the ground truth image. 
                         <p>Consider a top 1 retrieval result example. If there are four branchs, and the best retrieval results (result with smallest distance) for image with index 3 of each branch and their cosine distances are (i=1,d=0.4), (i=2,d=0.5),(i=3,d=0.02) and (i=801,d=0.003) respectively, the combined result would be i=2, (which means that the top 1 retrieval is wrong.) </p> 
@@ -386,7 +392,7 @@
 						<div>
 						<h3>Second Trial: Conditioning from Conditional Network</h3>
 						<p>Inspired by CITE and CSN, we tried to train a conditional neural network, in a hope that the neural net can learn how to decompose the raw embedding out of DenseNet-121 into several conditional embedding with weights assigned to each condtional embedding itself. We hope each embedding could learn a different visual concept, which we can perform retrieval based on.</p>
-						<p>Recall, our goal is to train the embedding encoded by different conditional branch could representing different concepts. Thus, though we train our neural net by performing two tasks classification and similarity triple comparison, the only thing we want is the embedding output from each conditional branch. The reason why we have to train the neural net by performing other tasks rather than similarity retrieval itself is, the TLL dataset is not large enough for us to train such a network. Thus, t is not realistic to train it explicitly like what is done in Conditional Similarity Network. Thus, we designed our network following the idea of CITE (a weight branch and a branch for conditional branchs), as shown in Figure 4 and 5.</p>
+						<p>Recall, our goal is to train the embeddings encoded by different conditional branch to represent different concepts. Thus, though we train our neural net by performing two tasks classification and similarity triple comparison, the only thing we want is a well-encoded embedding output from each conditional branch. The reason why we have to train the neural net by performing other tasks rather than similarity retrieval on TLL itself is that the TLL dataset is not large enough for us to train such a network. Thus, it is not realistic to train it explicitly like what is done in Conditional Similarity Network. Hence, we designed our network following the idea of CITE (a weight branch and a branch for conditional branchs), as shown in Figure 3 and 4.</p>
 						
 						<h4>Training by Classification Task</h4>
 						<p>Alternatively, the first training we tried is to perform a classification task. We use proposed network to joint-train data from ILSRVC 2012 and BAM and to enable the conditional layers to learn different concepts. Model is shown in Figure 3.
@@ -394,7 +400,7 @@
 						
 						<div style='text-align: center;font-size: 80%'>
 						<img src="images/TLLReport/ConditionalClassifier1.PNG" style="width:60%;align-self:center" alt="" caption="aljda">
-						<br />Figure 4: Network Architecture of Condtional Retrieval Training on Classification Task.
+						<br />Figure 3: Network Architecture of Condtional Retrieval Training on Classification Task.
 						</div>
 
 						<div style='text-align: center;font-size: 80%'>
@@ -441,12 +447,12 @@
                             <p>From the quantatitive result, we can see the proposed method can give slightly better result by both using the conditional embeddings (rows 3 and 4 in table 5) or just use the shared or producted embedding output by the neural net itself (rows 5 and 6 in table 5). </p>
                         
                         <h4>Training by Similarity Triplet</h4>
-                        <p>As the original Conditional Similarity Network and CITE are trained as similarity network and triplet are used there. We want to train our proposed network with similarity triplet to see whether it could improve the performance. We adjust our architecture as shown in Figure 5. </p>
+                        <p>As the original CSN and CITE are trained as similarity network and triplets are used there, we want to train our proposed network with similarity triplet to see whether the performance could be improved. We adjust our architecture as shown in Figure 4. </p>
                         <p>In our experiment, we use BAM and ILSRVC dataset. For each dataset, we sample triplet as (query image, random image from the same category, and random image from another category). We report the experiment results with M=4. Same as earlier, the quantatitive result is below and the qualitive result can be visualized at <a href="http://tllvisualizer2018.azurewebsites.net/k_subspace"> TLL Retrieval Demo</a>.</p>
 
 						<div style='text-align: center;font-size: 80%'>
 						<img src="images/TLLReport/ConditionalSimi1.PNG" style="width:60%;align-self:center" alt="" caption="aljda">
-						<br />Figure 5:Network Architecture of Condtional Retrieval Training on Similarity Task. Note the architecture are shared by the triplet.
+						<br />Figure 4:Network Architecture of Condtional Retrieval Training on Similarity Task. Note the architecture are shared by the triplet.
 						</div>
 						<div style='text-align: center;font-size: 80%'>
 							<table class='table' style='text-align: left;font-size: 120%' >
@@ -490,29 +496,31 @@
                             </table>
                             Table 6: General Recall and Associative Recall (Random) of Conditional Network training by classification task and similarity triplet task.
                             </div>
-                            <p>Apparently, the proposed network trained on similarity triplet task is not as good as trained with classification task. This could be caused by the way how the triplet is simpled. The sampling way enforces the network to learn the between-class differences, so the network will be more sensitive to within-class similarity. However, the kind of simiarlity in TLL that we want to detect is not in-class similarity but a concept-based, more abstract and general similarity, which could be a reason of the failure.</p>
+                            <p>Apparently, the proposed network trained on similarity triplet task is not as good as the one trained with classification task. This could be caused by the way how the triplet is sampled. The sampling way enforces the network to learn the between-class differences, so the network will be more sensitive to within-class similarity. However, the kind of simiarlity in TLL that we want to detect is not within-class similarity but a concept-based, more abstract and general similarity, which could be a reason of the failure.</p>
                             <br />
-                            <p>Overall, from the qualitive result, we can see the conditional branchs are not learning separated concepts and they behave very similar. Thus, we want to find a way to train the proposed network to learn separated concepts, which is what next section is about.
+                            <p>Overall, from the qualitative result, we can see the conditional branchs are not learning separated concepts and they behave very similar in all the methods tried so far. Thus, we want to find a way to train the proposed network to learn separated concepts, which is what next section is about.
 						</div>
 
 						<div>
 						<h3>Third Trial: Adjustment with Network to Learn More Independent Concepts</h3>
-						<p>By observing the qualitative result from the previous experiments, we realize that the concept that each conditional learned are not separated. If you consider them as vector bases, they are not perpendicular. However, we want them to be as independent as possible, so that we can leverage their separation and combination of them to help us find more customized simlarity. Therefore, in this section, we are going to explore how we can train each branch more independent.</p>
-						<p>Before everything, we first adjust our proposed network a bit to enable it deal with more complexity. Basically, we add several more fully-connected layers and we normalize the learned embeddings of the conditional layers as we will abstractize them as "base vectors" from now. As tested, training with classification task would fit better to our task, we will train with classification task for this round of experiments as well. The new proposed NN architecture is shown in Figure 6.</p>
+						<p>By observing the qualitative result from the previous experiments, we realize that the concepts learned by conditional branchs are not separated enough. If you consider them as vector bases, they are not as perpendicular as want. We want them to be as independent as possible, so that we can leverage their separation and combination of them to help us find more customized simlarity. Therefore, in this section, we are going to explore how we can train each branch more independent.</p>
+						<p>Before everything, we first adjust our proposed network a bit to enable it deal with more complexity. Basically, we 1) add several more fully-connected layers and 
+						2) we normalize the learned embeddings of the conditional layers, because we will abstractize them as "base vectors" from now. 
+						We will train with classification task for this round of experiments as well. The new proposed NN architecture is shown in Figure 5.</p>
 
 						<div style='text-align: center;font-size: 80%'>
 						<img src="images/TLLReport/ConditionalClassifier2.PNG" style="width:60%;align-self:center" 
 						alt="" caption="aljda">
-						<br />Figure 6: New Conditional Network Architecture.
+						<br />Figure 5: New Conditional Network Architecture.
 						</div>
 
 						<h4>More Conditional Branchs (Larger M)</h4>
-						<p>In the previous experiments, the number of conditional branchs was kept as four. However, it could be very difficult to completely decompose a complex 1024x1 embedding into 4 conditional branch. This is to say, each of the four conditional embeddings can still be a combination of many basic visual concepts, which makes four of them gives similarly retrieval results. Thus, here we are going to try different M, and report the results of M=4,16,64.</p>
+						<p>In the previous experiments, the number of conditional branchs was kept as four(4). However, it could be very difficult to completely decompose a complex 1024x1 embedding into 4 conditional branchs. This is to say, each of the four conditional embeddings can still be a combination of many basic visual concepts, which makes the four of them give similarly retrieval results. Thus, we try different M and report the results of M=4,16,64 here.</p>
 
 						<h4>Perpendicular Loss</h4>
-						<p>Another way we tried to enforce each of the M conditional branch to learn different concepts is adding an additional loss which punishes the non-perpendicular conditional pairs as ||<strong>a</strong> \dot <strong>b</strong> || for every conditional component pair <strong>a</strong> and <strong>b</strong>. The running time of this loss grows expoentially, so the training is slow. Also, this makes it very hard to train while keep the ILSRVC2012's accuracy, my best case, which is reported below, is top1 error rate around 60%. </p>
+						<p>Another way we tried to enforce each of the M conditional branch to learn different concepts is adding an additional loss which punishes the non-perpendicular conditional pairs as ||<strong>a</strong> \dot <strong>b</strong> || for every conditional component pair <strong>a</strong> and <strong>b</strong>. The running time of this loss grows expoentially, so the training is slow. Also, this loss is very hard to train while keeping the ILSRVC2012's accuracy. In my best case, which is reported below, my top1 error rate is around 60%. </p>
 
-						<p>Here we report the results of the methods proposed in this seciton.</p>
+						<p>Here we report the results of all the methods proposed in this seciton.</p>
 
 						<div style='text-align: center;font-size: 80%'>
 							<table class='table' style='text-align: left;font-size: 120%' >
@@ -599,10 +607,11 @@
                             </tr>
 
                             </table>
-                            Table 8: General Recall with Naive Conbination by classification task of all trials.n task and similarity triplet task.
+                            Table 8: General Recall with Auto Conbination by classification task of all trials.
                             </div>
                             <p>The qualitive result can be visualized at <a href="http://tllvisualizer2018.azurewebsites.net/k_subspace"> TLL Retrieval Demo</a> for all the above models.</p>
-                            <p>Here, we introduce a new metrics to evaluate how separate the conditional branchs are. Known the more similar two conditional branchs are, they will give more similar embeddings and thus the more overlap will be with their retrieval result. Thus, we use the following formula to measure the overlap of the retrieval results, which can indicate how different each pairs of conditional branch are. The Average Overlap is defined as sum_i(# overlaps over retrieval results out of ALL conditional branchs in top K results)/N, where N is the dataset size. </p>
+
+                            <p>Here, we introduce a new metrics to evaluate how separate the conditional branchs are. Known the more similar two conditional branchs are, they will give more similar embeddings and thus the more overlap will be with their retrieval results. Thus, we use the following formula to measure the overlap of the retrieval results, which can indicate how different each pairs of conditional branch are. The Average Overlap is defined as sum_i(# overlaps over retrieval results out of ALL conditional branchs in top K results)/N for i in N, where N is the dataset size. </p>
 
 
                             <div style='text-align: center;font-size: 80%'>
@@ -662,15 +671,15 @@
                     <div class="section_body">
 						<div>
 							<h3>TLL Dataset</h3>
-							<p>Our initial goal is to get a better performance on the TLL retrieval. However, with exploring the TLL dataset, we realize that there are some dataset issues which could make the task hard. Though the duplicates are supposed to be removed, there are still some duplicates remaining in the cleaned subset which could hurt the accuracy. Also, even without the duplicates, there could be more than one image similar to a query image by human judgement, but there is only one groundtruth. Plus, this dataset is too small to be used as training set in many cases, so we have to face the dataset bias problem.</p>
+							<p>Our initial goal is to get a better performance on the TLL retrieval. However, with exploring the TLL dataset, we realize that there are some dataset issues which could make the task hard. Though the duplicates are supposed to be removed, there are still some duplicates remaining in the cleaned subset which could hurt the accuracy. Also, even without the duplicates, there could be more than one image similar to a query image by human judgement, but there is only one ground truth. Plus, this dataset is too small to be used as training set in many cases, so we have to face the dataset bias problem.</p>
 						</div>
 						<div>
 							<h3>Potential Solution for This TLL Retrieval</h3>
-							<p>As we exploring how to train a neural network to learn separated visual concepts from a single image, we found the embedding semantic decomposition is very interesting. Inspired by the IBD paper, IBD could potential not only be applied to nerual network visualization but also other tasks like this image retrievals. We could compute embedding projections on the concepts that we are interested, find the similarity based on the selected concepts. In this way, we can get a concept-specialized similarity score. Besides, we can also use the low level concepts from BroDen to train the concept branchs as what has been done in the CSN work.</p>
+							<p>While we were exploring how to train a neural network to learn separated visual concepts from a single image, we found the embedding semantic decomposition is very interesting. Inspired by the IBD paper, IBD could potential not only be applied to nerual network visualization but also to other tasks like this image retrievals. We could compute embedding projections on the basic concepts conponents that we are interested and then find the similarity based on the selected concepts. In this way, we can get a concept-specialized similarity score. Besides, we can also use the low level concepts from BroDen to train concept branchs under supervision as what has been done in the CSN work.</p>
 						</div>
 						<div>
 							<h3>Potential Topic Shift</h3>
-							<p>The topic of Interpretable Basis Decomposition itself or just the semantic decomposition in latent space seems very interesting and not well explored yet. There are still many interesting questions with IBD, such as the independences of the visual concepts conponents, the large residuals of the decomposition or the representing ability of visual concepts conponent encoding. 
+							<p>The topic of Interpretable Basis Decomposition itself or just the semantic decomposition in latent space seems very interesting and not well explored yet. There are still many interesting questions regarding to IBD, such as the independences of the visual concept conponents, the large residuals of the decomposition or the representing ability of visual concepts conponent with current encoding method. 
 							Besides, the semantic decompostion in latent spaces might have more application than just visualization. It may be generalized to image synthesis, multi-task training or any multiple concepts involved task?</p>
 						</div>
 
