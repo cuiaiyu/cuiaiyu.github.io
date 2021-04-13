@@ -8,7 +8,29 @@
 
 <link href='https://fonts.googleapis.com/css?family=Titillium Web' rel='stylesheet'>
 <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/dreampulse/computer-modern-web-font/master/fonts.css">
+<style>
+  .app-box {
+    height:5%;
+    margin-top:10px;
+    margin-bottom:10px;
+    margin-left:2%;
+    margin-right:2%;
+    padding-top:5px;
+    padding-bottom:5px;
+    padding-left:15px;
+    padding-right:15px;
+    border-radius: 15px;
+    background-color: #fdfcdc;
 
+  }
+  .app-bg{
+    padding:2px
+    padding-left:4px;
+    margin:2px;
+    padding-right:4px;
+    border-radius:2px;
+  }
+</style>
 
 <!-- ======================================================================= -->
 
@@ -21,27 +43,27 @@
   <title>Dressing in Order</title>
 </head>
 
-<body style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size:large">
+<body style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size:medium">
       <br>
-      <center><h1 style="margin-top:2%; margin-left:10%; margin-right:10%">Dressing in Order: Recurrent Person Image Generation for Pose Transfer,Virtual Try-on and Outfit Editing</h1></center><br/>
+      <center><h2 style="margin-top:2%; margin-left:10%; margin-right:10%">Dressing in Order: Recurrent Person Image Generation for Pose Transfer,Virtual Try-on and Outfit Editing</h2></center><br/>
       <center><table align=center width=40%>
       <tr>
-        <td style="font-size:x-large"><center><a href="https://cuiaiyu.github.io">Aiyu Cui</a></center></td>
-        <td style="font-size:x-large"><center><a href="http://danielbmckee.com/">Daniel McKee</a></center></td>
-        <td style="font-size:x-large"><center><a href="http://slazebni.cs.illinois.edu">Svetlana Lazebnik</a></center></td>
+        <td style="font-size:large"><center><a href="https://cuiaiyu.github.io">Aiyu Cui</a></center></td>
+        <td style="font-size:large"><center><a href="http://danielbmckee.com/">Daniel McKee</a></center></td>
+        <td style="font-size:large"><center><a href="http://slazebni.cs.illinois.edu">Svetlana Lazebnik</a></center></td>
       </tr>
       </table>
       <table align=center width=60%;style="margin:10%">
-        <tr><td align=center><center><h2>University of Illinois at Urbana-Champaign</h2></center></td></tr>
+        <tr><td align=center><center><h3>University of Illinois at Urbana-Champaign</h3></center></td></tr>
     </table></center>
       
       
      
       <table align=center width=30%>
           <tr>
-            <td><center><span style="font-size:21px"><a href="">[Paper]</a></span></center></td>
-            <td><center><span style="font-size:21px"><a href="">[Bibtex]</a></span></center></td>
-            <td><center><span style="font-size:21px"><a href="https://github.com/cuiaiyu/dressing-in-order">[Github]</a></span></center></td>
+            <td><center><span style="font-size:large"><a href="">[Paper]</a></span></center></td>
+            <td><center><span style="font-size:large"><a href="">[Bibtex]</a></span></center></td>
+            <td><center><span style="font-size:large"><a href="https://github.com/cuiaiyu/dressing-in-order">[Github]</a></span></center></td>
           </tr>
       </table><br/>
       <br>
@@ -63,7 +85,30 @@
           Joint training on pose transfer and inpainting helps with detail preservation and coherence  of  generated  garments.   
           Extensive evaluations show that DiOr outperforms other recent methods like <a href="https://menyifang.github.io/projects/ADGAN/ADGAN.html">ADGAN</a> in terms of output quality, 
           and handles a wide range ofediting functions for which there is no direct supervision.</p>
-      </div><br/><hr>
+          <h4>Selected applications that DiOr supports: </h4>
+        <table>
+          <tr>
+            <td> <a class='app-bg' style="background-color: aliceblue;">Pose-guided person generation</a>	&nbsp;</td>
+          <td><a href="#tucking" class='app-bg' style="background-color:#FCF4D7">Tucking in (try-on)</a>	&nbsp;</td>
+          <td><a href="#removal" class='app-bg' style="background-color: #ccd5ae;"> Content removal</a>	&nbsp;</td>
+          <td>      <a href="#tex" class='app-bg' style='background-color:#fefae0'> Texture transfer</a> &nbsp;</td>
+             
+        </tr>
+        <tr>
+
+            <td></td>
+            <td>  <a href="#layering" class='app-bg' style='background-color: #F4F4D5'> Garment layering (try-on)</a>	&nbsp; </td>
+          <td>     <a href="#insertion" class='app-bg' style='background-color:#e9edc9'> Content insertion</a>	&nbsp;</td>
+           <td>     <a href="#shape" class='app-bg' style='background-color:#faedcd'> Garment reshaping</a></td>
+      
+          </td>
+        </tr>
+       
+      </table>
+
+      </div>
+
+      <hr>
 
       <div style="width:80%; margin:0 auto; text-align=center">
 
@@ -80,30 +125,49 @@
 
       <h2>Try-on Applications</h2>
       <p>
-        DiOr supports a couple of novel virtual try-on applications, including:
-        <ls>
-          <ul><b style='color: #CD533B'>Tucking in</b>: Users can control whether they want to tuck in or not by specifying the dressing order. </ul>
-          <ul><b style='color: #CD533B'>Garment Layering</b>: Users can keep layering garments on existing garments to freely express their fashion taste! </ul>
-          <ul><b>Check <a href=''>our paper</a> to see what else we can play with the DiOr system!</b></ul>
-        </ls>
-      </p>
-          <center><img src="images/short_try_on_editing.png" height=80% width=100%></img></center>
-          </div>
+        DiOr supports a couple of novel virtual try-on applications, including:</p>
+        <table>
+          <tr><td width="32%"></td>
+            <td width="68%"></td></tr>
+            <tr><td>
+          <div id='tucking' class='app-box' style='background-color: #FCF4D7;'><h4 style='color: #CD533B'>Tucking in</h4>
+                  <p>Users can control whether they want to tuck in or not by specifying the dressing order.</p> </div>
+            </td>
+          <td><div id='layering' class='app-box' style='background-color: #F4F4D5'><h4 style='color: #CD533B'>Garment Layering</h4>
+                <p>Our DiOr system supports user to both add a base layer under the existing outfits and keep layering garments outside existing outfits. Users can achieve different looks by different dressing order to freely express their fashion tastes!</p> </div>
+          </td></tr>
+        </table>
+          <center><img src="images/short_try_on_editing.png" width=100%></img></center>
+        </div>
           
       <div style="width:80%; margin:0 auto; text-align=center">
               <h2>Editing Applications</h2>
-              <p>Dior also supports a number of fashion editing tasks, including: 
-                  <ls>
-                      <ul><b  style='color: #CD533B'>Unwanted Content Removal</b>: Users can freely remove the unwanted region of garments (e.g., some logos)! </ul>
-                      <ul><b style='color:#CD533B'>Print Insertion</b>: Users can also insert their favorite prints 
-                        (e.g. <a href="https://en.wikipedia.org/wiki/Doge_(meme)">doge</a> or 
-                        <a href="https://en.wikipedia.org/wiki/Bulbasaur">Bulbasaur</a>) on the garments, and DiOr will figure out the harmonization!</ul>
-                      <ul><b style='color:#CD533B'>Texture Transfer</b>: Don't like the texture on your garment? Swap it with another texture from either another garment or a wild picture!</ul>
-                      <ul><b style='color:#CD533B'>Reshaping</b>: Emm... don't like the shape of your garment either? User DiOr to reshape the garment into your desired shape!</ul>
-                    </ls>
-              </p>
+              <p>Dior also supports a number of fashion editing tasks, including: </p>
+              <table>
+                  <tr>
+                      <td width="25%"></td>
+                      <td width="25%"></td>
+                      <td width="25%"></td>
+                      <td width="25%"></td>
+                    </tr>
+              <tr>
+              <td><div id='removal' class='app-box' style="background-color: #ccd5ae;"><h4  style='color: #CD533B'>Content Removal</h4>
+               <p>Users can remove the unwanted contents on garments (e.g., logos) with DiOr system! </p>
+              </div></td> 
+              <td><div id='insertion' class='app-box' style='background-color:#e9edc9'><h4 style='color:#CD533B'>Print Insertion</h4>
+              <p>Users can insert external prints 
+                        (e.g. <a href="https://en.wikipedia.org/wiki/Doge_(meme)">doge dog</a> or 
+                        <a href="https://en.wikipedia.org/wiki/Bulbasaur">Bulbasaur Pokemon</a>) on the outfits!</p>
+                      </div></td> 
+              <td><div id='tex' class='app-box' style='background-color:#fefae0'><h4 style='color:#CD533B'>Texture Transfer</h4>
+              <p>Don't like the garment texture? Swap it with another texture from garments or wild pictures!</p>
+            </div></td> 
+            <td><div id='shape' class='app-box' style='background-color:#faedcd'><h4 style='color:#CD533B'>Reshaping</h4> 
+                      <p>If not happy with a garment's shape, use DiOr to reshape it into the desired shape!</p>
+                    </div></td> 
+                    </table>
               <center><img src="images/short_editing.png" height=80% width=100%></img></center>
-              </div>
+            </tr></div>
               
       </div><br/>
 
