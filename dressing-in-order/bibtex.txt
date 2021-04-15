@@ -1,0 +1,6 @@
+@article{cui2021dressing,
+  title={Dressing in Order: Recurrent Person Image Generation for Pose Transfer, Virtual Try-on and Outfit Editing},
+  author={Aiyu Cui and Daniel McKee and Svetlana Lazebnik},
+  journal={arXiv preprint arXiv:2104.07021},
+  year={2021},
+}
