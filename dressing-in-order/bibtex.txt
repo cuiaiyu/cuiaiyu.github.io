@@ -1,8 +1,6 @@
-@InProceedings{cui2021dressing,
-    author    = {Cui, Aiyu and McKee, Daniel and Lazebnik, Svetlana},
-    title     = {Dressing in Order: Recurrent Person Image Generation for Pose Transfer, Virtual Try-On and Outfit Editing},
-    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Workshops},
-    month     = {June},
-    year      = {2021},
-    pages     = {3940-3945}
+@article{cui2021dressing,
+  title={Dressing in Order: Recurrent Person Image Generation for Pose Transfer, Virtual Try-on and Outfit Editing},
+  author={Cui, Aiyu and McKee, Daniel and Lazebnik, Svetlana},
+  journal={arXiv preprint arXiv:2104.07021},
+  year={2021}
 }
