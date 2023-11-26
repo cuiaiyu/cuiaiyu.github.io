@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aiyu Cui</title>
     
-    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
     <link rel="stylesheet" type="text/css" href="content/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="content/site.css" />
     <link rel="stylesheet" type="text/css" href="content/general_project.css" />
@@ -19,6 +18,7 @@
 </head>
 
 <!--CSS-->
+<link href="./index_css.css" rel="stylesheet">
 <style>
    .bio-photo {
             background: #000;
@@ -32,7 +32,7 @@
       background-repeat: no-repeat;
       background-attachment: fixed;
       background-size: cover;
-      background-image: url("images/IMG_5293.jpg");
+      
     }
     .bg-inside{
       background-color:rgba(255, 255, 255, 0.9);
@@ -105,26 +105,7 @@
 
 <body class='background'>
 	<div class='bg-inside'>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="/" class="navbar-brand">Aiyu Cui</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="https://github.com/cuiaiyu">Github</a></li>
-                </ul>
-                    
-
-            </div>
-        </div>
-    </div>
+    
     <div class="container body-content"></div>
 
 <!--body-->
@@ -133,7 +114,7 @@
     <!--Bio-->
          <div class="Bio"><table><col width="75%" /><col width="25%" /><tr>
           <td>
-            <div class="subtitle-center" style='text-align: left'><b>Aiyu Cui</b></div>
+            <div class="subtitle-center" style='text-align: center'><b>Aiyu Cui</b></div>
             <div class="bio-content" style="text-align: left;line-height: 1.5;font-size: 1.1em">
               
             <p style="border-style: dotted;"><b>Update:</b> I am currently on the job market looking for Research Scientist and related positions. Feel free to reach out if you know of any opportunities that may be a good fit!</p>
@@ -145,24 +126,83 @@
                 <a href="https://www.cse.psu.edu/~rtc12/">Prof.Robert Collins</a> 
                 and <a href="https://www.cse.psu.edu/~yul11/">Prof. Yanxi Liu</a>. 
                  </p>
-                 <p>My research area is <b>Computer Vision</b>. I'm specifically interested in image generation and manipulation.</p>
-                <a class='button-page button' href="mailto:aiyucui2@illinois.edu">Email</a> 
+                 <p>My research area is <b>Computer Vision</b>. I'm specifically interested in image generation and manipulation with diffusion models and GANs.</p>
+                <a class='button-colab button' href="mailto:aiyucui2@illinois.edu">Email</a> 
                 <a class='button-demo button' href="https://github.com/cuiaiyu">GitHub</a>
-                <a class='button-code button' href="https://www.linkedin.com/in/aiyu-cui-7b57a314a/">LinkedIn</a>
+                <a class='button-page button' href="https://www.linkedin.com/in/aiyu-cui-7b57a314a/">LinkedIn</a>
             </div></td>
             <td><div class='bio-content' style='padding: 30% 5% 2% 5%;'>
-                <img class="bio-photo" src="images/myPhoto.jpg" style='
-                width: 90%;height: 90%;border-radius: 50%;'/>
+                <img class="bio-photo" src="images/myPhoto.jpg"/>
                </div></td>
-
       </tr></table></div>
 
 
             
-	
-<a name="projects"></a>
 
-    <div class="subtitle-center" style="text-align: left; margin-bottom:0">Selected Projects</div>
+    <!-- Internships section -->
+    <section id="internships" class="container content-section text-center">
+        <h3>Research Internships</h3>
+        <table class="container content-section text-center">
+            <tr>
+                <td width=5%></td>
+                <td width=30%></td>
+                <td width=30%></td>
+                <td width=30%></td>
+                <td width=5%></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><img id="intern_logos" src="images/logos/adobe.png" width=50%></td>
+                <td><img id="intern_logos" src="images/logos/meta.png" width=50%></td>
+                <td><img id="intern_logos" src="images/logos/google.png" width=25%></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><b><h5>Adobe</h5></b></td>
+                <td><b><h5>Meta</h5></b></td>
+                <td><b><h5>Google</h5></b></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>2021</td>
+                <td>2022</td>
+                <td>2023</td>
+                <td></td>
+            </tr>
+        </table>
+        <br>
+
+        <h3>Education</h3>
+        <table class="container content-section text-center">
+            <tr>
+                <td width=10%></td>
+                <td width=40%></td>
+                <td width=40%></td>
+                <td width=10%></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><img id="intern_logos" src="images/logos/penn_state.png" width=50%></td>
+                <td><img id="intern_logos" src="images/logos/uiuc.png" width=25%></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><b><h5>Penn State University</h5></b></td>
+                <td><b><h5>University of Illinois at Urbana-Champaign</h5></b></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>2014-2018</td>
+                <td>2018-present</td>
+            </tr>
+        </table>
+    </section>
+
+<!-- Projects section -->
+<section id="projects" class="container content-section">
+    <div class="subtitle-center" style="text-align: center; margin-bottom:0">Selected Projects</div>
       <div style='padding:2% 1%;' >
     <table>
 
@@ -237,7 +277,8 @@
            </p>
     </td>
     </tr></table>
-  </div>
+  </div></section>
+
 	
 
     </div>
