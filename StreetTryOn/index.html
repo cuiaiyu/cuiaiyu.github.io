@@ -1,0 +1,176 @@
+
+<!DOCTYPE HTML>
+<html>
+
+<!-- ======================================================================= -->
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script type="text/javascript">google.load("jquery", "1.3.2");</script>
+
+<link href='https://fonts.googleapis.com/css?family=Titillium Web' rel='stylesheet'>
+<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/dreampulse/computer-modern-web-font/master/fonts.css">
+<style>
+  .app-box {
+    height:5%;
+    margin-top:10px;
+    margin-bottom:10px;
+    margin-left:2%;
+    margin-right:2%;
+    padding-top:5px;
+    padding-bottom:5px;
+    padding-left:15px;
+    padding-right:15px;
+    border-radius: 15px;
+    background-color: #fdfcdc;
+  }
+  .app-bg{
+    padding:2px
+    padding-left:4px;
+    margin:2px;
+    padding-right:4px;
+    border-radius:2px;
+    font-weight: bold;
+  }
+
+</style>
+
+<!-- ======================================================================= -->
+
+
+<script type="text/javascript" src="resources/hidebib.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,600,400italic,600italic,300,300italic' rel='stylesheet' type='text/css'>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Street TryOn: Learning In-the-Wild Virtual Try-On from Unpaired Images</title>
+</head>
+
+<body style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size:medium">
+      <br>
+      <center><h1 style="margin-top:2%; margin-left:5%; margin-right:5%">
+        Street TryOn: Learning In-the-Wild Virtual Try-On from Unpaired Images</h1></center><br/>
+      <center><table align=center width=60%>
+      <tr>
+        <td style="font-size:large"><center><a href="https://cuiaiyu.github.io">Aiyu Cui</a></center></td>
+        <td style="font-size:large"><center><a href="https://jmahajan117.github.io/">Jay Mahajan</a></center></td>
+        <td style="font-size:large"><center><a href="https://virajshah.com/">Viraj Shah</a></center></td>
+        <td style="font-size:large"><center><a href="https://www.linkedin.com/in/preetigomes/">Preeti Gomathinayagam</a></center></td>
+        <td style="font-size:large"><center><a href="https://slazebni.cs.illinois.edu/">Svetlana Lazebnik</a></center></td>
+
+      </tr>
+      </table>
+      <table align=center width=60%;style="margin:10%">
+        <tr><td align=center><center><h3>University of Illinois at Urbana-Champaign</h3></center></td></tr>
+        <tr><td align=center><h3><center>Coming soon</center></h3></td></tr>
+        <tr><td align=center></td></tr>
+    </table></center>
+
+    <!--
+    <table align=center width=40%>
+      <tr>
+        <td><center><span style="font-size:large"><a href="">[Paper]</a></span></center></td>
+        <td><center><span style="font-size:large"><a href="#dataset">[Data]</a></span></center></td>
+        <td><center><span style="font-size:large"><a href="#code">[Code]</a></span></center></td>
+        <td><center><span style="font-size:large"><a href="#bibtex">[Bibtex]</a></span></center></td>
+      </tr>
+  </table><br/>
+  -->
+
+      
+      
+     
+     
+     
+      <div style="width:80%; margin:0 auto; text-align=center">
+
+      
+    <center><img src="images/teaser.png" width=100%></img></center>
+      <h2>Abstract</h2>
+          <p>Virtual try-on has become a popular research topic, 
+            but most existing methods focus on studio images with a clean background. 
+            They can achieve plausible results for this studio try-on setting by learning to warp a garment image to fit a person's body from paired training data, 
+            i.e., garment images paired with images of people wearing the same garment. 
+            Such data is often collected from commercial websites, 
+            where each garment is demonstrated both by itself and on several models. 
+            By contrast, it is hard to collect paired data for in-the-wild scenes, 
+            and therefore, virtual try-on for casual images of people against cluttered backgrounds is rarely studied.</p>
+
+            <p>In this work, we fill the gap in the current virtual try-on research by 
+              (1) introducing a <b>Street TryOn</b> benchmark to evaluate performance on street scenes and 
+              (2) proposing a novel method that can learn without paired data, 
+              from a set of in-the-wild person images directly. 
+              Our method can achieve robust performance across shop and street domains 
+              using a novel DensePose warping correction method 
+              combined with diffusion-based inpainting controlled by pose and semantic segmentation. 
+              Our experiments demonstrate competitive performance for standard studio try-on tasks a
+              nd SOTA performance for street try-on and cross-domain try-on tasks.</p>
+      
+   
+    </div>
+
+      <hr>
+    
+      <div style="width:80%; margin:0 auto; text-align=center">
+        <h2>Street2Street TryOn</h2>
+        The <b>Street2Street TryOn</b> tasks takes a garment from a street image and aim to put it on a person in a causual image against cluttered backgrounds.
+        The below images show our proposed method can effectively achieve the Street2Street virtual try-on.
+        <center><img src="images/street2street.png" width=100%></img></center>
+        </div>
+
+      
+        <hr>
+
+      <div style="width:80%; margin:0 auto; text-align=center">
+
+        <h2 id="dataset">StreetTryOn Dataset/Benchmark</h2>
+        we introduce a new benchmark, <b>StreetTryOn</b>, 
+        derived from the large fashion retrieval dataset 
+        <a href="https://github.com/switchablenorms/DeepFashion2">DeepFashion2</a>. 
+        We filter out over 90% of DeepFashion2 images that are infeasible for try-on tasks 
+        (e.g., non-frontal view, large occlusion, dark environment, etc.) 
+        to obtain 12,364 and 2,089 street person images for training and validation, respectively. 
+            
+        <h3>Release</h3>
+        Comming soon. Once it is ready, the data will be released 
+        <a href="https://github.com/cuiaiyu/street-tryon-benchmark">here</a>.
+        </div><br/><hr>
+
+        
+        <!--
+          <div style="width:80%; margin:0 auto; text-align=center">
+          <h2 id="bibtex">Bibtex</h2>
+          <p>If you find this work is helpful, please cite us as 
+            <pre>
+            <code>
+              @inproceedings{cui2021dressing,
+                title={Dressing in order: Recurrent person image generation for pose transfer, virtual try-on and outfit editing},
+                author={Cui, Aiyu and McKee, Daniel and Lazebnik, Svetlana},
+                booktitle={Proceedings of the IEEE/CVF international conference on computer vision},
+                pages={14638--14647},
+                year={2021}
+              }
+            </code>
+            </pre>
+          </p>
+          
+        </div>
+        -->
+      
+
+
+      
+
+     
+     
+      
+</div><br/>
+
+<hr/>
+<p>Thanks to <a href="unnat.github.io">Unnat Jain</a> for sharing the template of this project page. </p>
+
+
+    
+
+    
+</script>
+</body>
+</html>
