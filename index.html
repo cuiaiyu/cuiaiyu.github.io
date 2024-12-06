@@ -13,13 +13,20 @@
     
     <script src="/static/app/scripts/modernizr-2.6.2.js"></script>
     <!-- Place this tag in your head or just before your close body tag. -->
-<script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
 
 </head>
 
 <!--CSS-->
 <link href="./index_css.css" rel="stylesheet">
+
 <style>
+    .project_table {
+        margin: 2%;
+        text-align:start;
+    }
+
    .bio-photo {
             background: #000;
             width: 100%;
@@ -36,11 +43,10 @@
     }
     .bg-inside{
       background-color:rgba(255, 255, 255, 0.9);
-      margin:2% 8% 2% 8%;
+      margin:2% 2% 2% 2%;
       padding: 2% 8% 2% 8%;
       background-attachment: fixed;
-      background-size: cover;
-      ;
+      background-size: auto;
     }
     .left {
       float: left;
@@ -57,27 +63,10 @@
     background-color: grey; /* Green */
     border: none;
     color: white;
-    padding-left:1%;
-    padding-right: 1%;
     text-align: center;
-    text-decoration: none;
     display: inline-block;
-    border-radius: 5px;
-    font-style:unset;
-}
-    .button-item {
-    background-color: grey; /* Green */
-    color: white;
-    padding-left:1%;
-    padding-right: 1%;
-    margin-top:2px;
-    margin-bottom:2px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    border-radius: 20% 0 20% 0;
-    font-size:0.86em;
-    text-shadow: 0;
+    border-radius: 2px;
+    margin: 1px;
 }
     .button-page{
         background-color: #008fb3;
@@ -102,38 +91,36 @@
     }
 </style>
 
-<link rel="stylesheet" type="text/css" href="content/general_bio.css" />
-
 
 
 <body class='background'>
 	<div class='bg-inside'>
-    
     <div class="container body-content"></div>
 
 <!--body-->
 
-    <div class="blog,bg-inside" style="font-family:Georgia">
+    <div class="bg-inside" style="font-family:'Times New Roman', Times, serif">
     <!--Bio-->
          <div class="Bio"><table><col width="75%" /><col width="25%" /><tr>
           <td>
             <div class="subtitle-center" style='text-align: center'><b>Aiyu Cui</b></div>
-            <div class="bio-content" style="text-align: left;line-height: 1.5;font-size: 1.1em">
+            <div class="bio-content" style="text-align: left;line-height: 1.5;font-size: medium">
               
-            <p style="border-style: dotted;"><b>Update:</b> I am currently on the job market looking for Research Scientist and related positions. Feel free to reach out if you know of any opportunities that may be a good fit!</p>
-             </p>
-                <p>I am a <b>CS PhD</b> student advised by Prof.
-                <a href="http://slazebni.cs.illinois.edu/">Svetlana Lazebnik</a>
-                 at <b>UIUC</b> in <a href="http://vision.cs.illinois.edu/vision_website/">Computer Vision Group</a>. 
+            
+                <p>I obtained my <b>Ph.D. in Computer Science</b> from <a>University of Illinois Urbana-Champaign</a> in 2024, advised by Prof.
+                <a href="http://slazebni.cs.illinois.edu/">Svetlana Lazebnik</a>. 
                 Before that, I received my B.S. degree in Computer Science from <b>Penn State</b>, where I was luckily working with
                 <a href="https://www.cse.psu.edu/~rtc12/">Prof.Robert Collins</a> 
                 and <a href="https://www.cse.psu.edu/~yul11/">Prof. Yanxi Liu</a>. 
                  </p>
-                 <p>My research area is <b>Computer Vision</b>. I'm specifically interested in image generation and manipulation with diffusion models and GANs.</p>
-                 <p>Feel free to reach out by <b>aiyucui2 [at] illinois [dot] edu</b>.</p>
-                <a class='button-colab button' href="mailto:aiyucui2@illinois.edu">Email</a> 
-                <a class='button-demo button' href="https://github.com/cuiaiyu">GitHub</a>
-                <a class='button-page button' href="https://www.linkedin.com/in/aiyu-cui-7b57a314a/">LinkedIn</a>
+                 <p>
+                    My research focuses on generative modeling in <b>computer vision</b>, with a particular emphasis on utilizing <b>diffusion models</b> for real-world applications such as virtual try-on and image stylization. I am open to new connections and opportunities — feel free to reach out!                 </p>
+                <a class='button-page button' href="mailto:aiyucui2@illinois.edu">&nbsp Email &nbsp</a> 
+                <a class='button-page button' href="https://scholar.google.com/citations?user=ySzjUaQAAAAJ&hl=en&oi=sra">&nbsp Google Scholar &nbsp</a>
+                <a class='button-page button' href="https://github.com/cuiaiyu">&nbsp GitHub &nbsp</a>
+                <a class='button-page button' href="https://www.linkedin.com/in/aiyu-cui-7b57a314a/">&nbsp LinkedIn &nbsp</a>
+                <a class='button-page button' href="projects">&nbsp Projects &nbsp</a>
+            
             </div></td>
             <td><div class='bio-content' style='padding: 30% 5% 2% 5%;'>
                 <img class="bio-photo" src="images/myPhoto.jpg"/>
@@ -188,104 +175,114 @@
             </tr>
             <tr>
                 <td></td>
-                <td><img id="intern_logos" src="images/logos/penn_state.png" width=50%></td>
-                <td><img id="intern_logos" src="images/logos/uiuc.png" width=25%></td>
+                <td><img id="intern_logos" src="images/logos/penn_state.png" width=30%></td>
+                <td><img id="intern_logos" src="images/logos/uiuc.png" width=15%></td>
             </tr>
             <tr>
                 <td></td>
                 <td><b><h4>Penn State University</h4></b></td>
-                <td><b><h4>University of Illinois at Urbana-Champaign</h4></b></td>
+                <td><b><h4>University of Illinois Urbana-Champaign</h4></b></td>
             </tr>
             <tr>
                 <td></td>
-                <td>2014-2018</td>
-                <td>2018-present</td>
+                <td>B.S. | 2014-2018</td>
+                <td>Ph.D. | 2018-2024</td>
             </tr>
         </table>
     </section>
 
 <!-- Projects section -->
 <section id="projects" class="container content-section">
-    <div class="subtitle-center" style="text-align: center; margin-bottom:0">Selected Projects</div>
-      <div style='padding:2% 1%;' >
-    <table>
+    <h3>Research Paper and Projects</h3>
+    <table class="project_table"><col width="25%" /><col width="5%" /><col width="65%" />
 
-   
-        <tr style="background-color:#f5f5f0;">
+        <tr>
+            <td><img src="images/unziplora_small_teaser.jpg" width=100%></td>
+            <td></td>
+            <td><div><a href="https://unziplora.github.io"><h4><b style="color: red;">(NEW!)</b>UnZipLoRA: Separating Content and Style from A Single Image</h4></a> 
+                    C. Liu, V. Shah, <b>A. Cui</b>, S. Lazebnik
+                    <br><b>Under Review, 2025</b>
+                    <br>
+                    <a class='button-page button' href="https://unziplora.github.io">&nbsp <u>Project Page</u> &nbsp</a> 
+                    <a class='button-paper button' href="https://arxiv.org/abs/2412.04465">&nbsp <u>Paper</u> &nbsp</a>  
+            </div></td>
+        </tr>
+</table>
+
+    <table class="project_table"><col width="25%" /><col width="5%" /><col width="65%" />
+
+        <tr>
             <td><img src="images/little_teaser.gif" width=100%></td>
             <td></td>
-        <td>
-        
-       <p><a href="StreetTryOn/"><b>Street TryOn: Learning In-the-Wild Virtual Try-On from Unpaired Images</b></a> 
-            <b style="color:#FF5733">(New)</b>
-            <br><b>A. Cui</b>,  J. Mahajan, V. Shah, P. Gomathinayagam, C. Liu, S. Lazebnik
-            <br><b>WACV 2025</b>
-            <br><b style='color:#FF5733;'>Best Paper</b> at <i><a href="https://sites.google.com/view/cvfad2024/">CVFAD Workshop</a></i>, CVPR 2024.
+            <td><div><a href="StreetTryOn/"><h4>Street TryOn: Learning In-the-Wild Virtual Try-On from Unpaired Images</h4></a> 
+                    <b>A. Cui</b>,  J. Mahajan, V. Shah, P. Gomathinayagam, C. Liu, S. Lazebnik
+                    <br><b>WACV 2025</b>
+                    <br><b style='color:#FF5733;'>Best Paper</b> at <i><a href="https://sites.google.com/view/cvfad2024/">Computer Vision for Fashion, Art and Design Workshop</a></i>, CVPR 2024.
+                    <br>
+                    <a class='button-page button' href="StreetTryOn/index.html">&nbsp <u>Project Page</u> &nbsp</a> 
+                    <a class='button-paper button' href="https://arxiv.org/pdf/2311.16094.pdf">&nbsp <u>Paper</u> &nbsp</a>  
+                    <a class='button-data button' href="https://github.com/cuiaiyu/street-tryon-benchmark">&nbsp <u>Data</u> &nbsp</a>
+                    <a class="github-button"
+                        href="https://github.com/cuiaiyu/street-tryon-benchmark"
+                        data-icon="octicon-star"
+                        data-size="small"
+                        data-show-count="true"
+                        aria-label="Star ntkme/github-buttons on GitHub">Star</a>
+            </div></td>
+        </tr>
+</table>
 
-            <br>
-            <a class='button-page button' href="StreetTryOn/index.html"><u>Project Page</u></a> 
-            <a class='button-paper button' href="https://arxiv.org/pdf/2311.16094.pdf"><u>Paper</u></a>  
-            <a class='button-data button' href="https://github.com/cuiaiyu/street-tryon-benchmark"><u>Data</u></a>
-       </p>
-</td>
-</tr><tr></tr>
+<table class="project_table"><col width="25%" /><col width="5%" /><col width="65%" />
         
-            <tr>
-                <td><img src="ArtifyGAN/images/demo.gif" width=100%></td>
-                <td></td>
-            <td>
-            
-           <p><a href='ArtifyGAN/'><b>One-Shot Stylization for Full-Body Human Images</b></a> 
-                <br><b>A. Cui</b>,  S. Lazebnik
-                <br><b>arXiv 2023</b>
-                <br>
-                <a class='button-page button' href="ArtifyGAN/"><u>Project Page</u></a> 
-                <a class='button-paper button' href="https://arxiv.org/pdf/2304.06917.pdf"><u>Paper</u></a>  
-                </p>
-    </td>
+    <tr>
+        <td><img src="ArtifyGAN/images/demo.gif" width=100%></td>
+        <td></td>
+        <td><div><a href='ArtifyGAN/'><h4>One-Shot Stylization for Full-Body Human Images</h4></a> 
+            <b>A. Cui</b>,  S. Lazebnik
+            <br><b>arXiv, 2023</b>
+            <br>
+            <a class='button-page button' href="ArtifyGAN/">&nbsp <u>Project Page</u> &nbsp</a> 
+            <a class='button-paper button' href="https://arxiv.org/pdf/2304.06917.pdf">&nbsp <u>Paper</u> &nbsp</a>  
+        </div></td>
     </tr>
-    <tr></tr>
-    <tr style="background-color:#f5f5f0;">
+</table>
+<table class="project_table"><col width=25%></td><col width=5%></td><col width=65%>
+    <tr>
         <td><img src="images/garment_iuv.png" width=100%></td>
         <td></td>
-    <td>
-    
-   <p><a><b>Learning Garment DensePose for Robust Warping in Virtual Try-On</b></a> 
-        <br><b>A. Cui</b>,  S. He, T. Xiang, A. Toisoul
+    <td><div><a><h4>Learning Garment DensePose for Robust Warping in Virtual Try-On</h4></a> 
+        <b>A. Cui</b>,  S. He, T. Xiang, A. Toisoul
         <br><b>arXiv 2023</b>
         <br>
-        <a class='button-paper button' href="https://arxiv.org/pdf/2303.17688"><u>Paper</u></a>  
+        <a class='button-paper button' href="https://arxiv.org/pdf/2303.17688">&nbsp <u>Paper</u> &nbsp</a>  
         
-   </p>
-</td>
-</tr><tr></tr>
-    <tr><td width=25%></td><td width=5%></td><td width=70%></td></tr>
-            <tr>
-                <td><img src="dressing-in-order/images/small_cover.png" width=100%></td>
-                <td></td>
-            <td>
+   </div></td>
+</tr></table>
+
+<table class="project_table"><col width=25%></td><col width=5%></td><col width=65%>
+        <tr>
+            <td><img src="dressing-in-order/images/small_cover.png" width=100%></td>
+            <td></td>
+            <td><div><a href='dressing-in-order/'><h4>Dressing in Order: Recurrent Person Image Generation for Pose Transfer, Virtual Try-on and Outfit Editing.</h4></a> 
             
-           <p><a href='dressing-in-order/'><b>Dressing in Order: Recurrent Person Image Generation for Pose Transfer, Virtual Try-on and Outfit Editing.</b></a> 
-            
-                <br><b>A. Cui</b>, D. McKee, S. Lazebnik
+                <b>A. Cui</b>, D. McKee, S. Lazebnik
                 <br><b>ICCV 2021</b>
-                <br><b style='color:#FF5733;'>Best Paper</b> at <i>Computer Vision for Fashion, Art and Design Workshop</i>, CVPR 2021.
+                <br><b style='color:#FF5733;'>Best Paper</b> at <a href="https://sites.google.com/zalando.de/cvfad2021/home"><i>Computer Vision for Fashion, Art and Design Workshop</i></a>, CVPR 2021.
                 <br>
-                <a class='button-page button' href="https://cuiaiyu.github.io/dressing-in-order/"><u>Project Page</u></a> 
-                <a class='button-paper button' href="https://openaccess.thecvf.com/content/ICCV2021/html/Cui_Dressing_in_Order_Recurrent_Person_Image_Generation_for_Pose_Transfer_ICCV_2021_paper.html"><u>Paper</u></a>  
-                <a class='button-demo button' href="https://youtu.be/z0UgPSTEdVo"><u>Video Talk</u></a> 
-                <a class="'button-colab button" style='background-color: #efa925;' href="https://colab.research.google.com/drive/1WfeKTPtt3qtlcTlrX47J03mxUzbVvyrL?usp=sharing"><u>Colab Demo</u></a> 
-                <a class='button-sourcecode button'  href="https://github.com/cuiaiyu/dressing-in-order"><u>Code</u></a> 
+                <a class='button-page button' href="https://cuiaiyu.github.io/dressing-in-order/">&nbsp <u>Project Page</u> &nbsp</a> 
+                <a class='button-paper button' href="https://openaccess.thecvf.com/content/ICCV2021/html/Cui_Dressing_in_Order_Recurrent_Person_Image_Generation_for_Pose_Transfer_ICCV_2021_paper.html">&nbsp <u>Paper</u> &nbsp</a>  
+                <a class='button-demo button' href="https://youtu.be/z0UgPSTEdVo">&nbsp <u>Video Talk</u> &nbsp</a> 
+                <a class="'button-colab button" style='background-color: #efa925;' href="https://colab.research.google.com/drive/1WfeKTPtt3qtlcTlrX47J03mxUzbVvyrL?usp=sharing">&nbsp <u>Colab Demo</u> &nbsp</a> 
+                <a class='button-sourcecode button'  href="https://github.com/cuiaiyu/dressing-in-order">&nbsp <u>Code</u> &nbsp</a> 
                 <a class="github-button"
-   href="https://github.com/cuiaiyu/dressing-in-order"
-   data-icon="octicon-star"
-   data-size="small"
-   data-show-count="true"
-   aria-label="Star ntkme/github-buttons on GitHub">Star</a>
+                    href="https://github.com/cuiaiyu/dressing-in-order"
+                    data-icon="octicon-star"
+                    data-size="small"
+                    data-show-count="true"
+                    aria-label="Star ntkme/github-buttons on GitHub">Star</a>
                 
-           </p>
-    </td>
-    </tr></table>
+                </div></td>
+        </tr></table>
   </div></section>
 
 	
@@ -294,11 +291,7 @@
     </div>
         
 
-       
-
-     <footer style='margin: 2% 10%;color:white'>
-            <p> &copy; Copyright 2019 - Aiyu Cui - Version 4.1</p>
-        </footer>
+    
     <script src="/static/app/scripts/jquery-1.10.2.js"></script>
     <script src="/static/app/scripts/bootstrap.js"></script>
     <script src="/static/app/scripts/respond.js"></script>
