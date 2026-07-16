@@ -1,308 +1,539 @@
-
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aiyu Cui</title>
-    
-    <link rel="stylesheet" type="text/css" href="content/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="content/site.css" />
-    <link rel="stylesheet" type="text/css" href="content/general_project.css" />
-    
-    <script src="/static/app/scripts/modernizr-2.6.2.js"></script>
-    <!-- Place this tag in your head or just before your close body tag. -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #333333;
+            --text-secondary: #666666;
+            --accent-color: #0055aa;
+            --border-color: #eef0f2;
+            --teaser-bg: #f5f5f7;
+            --teaser-text: #999999;
+        }
 
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #0d0d0d;
+                --text-color: #f5f5f7;
+                --text-secondary: #999999;
+                --accent-color: #2997ff;
+                --border-color: #222222;
+                --teaser-bg: #161617;
+                --teaser-text: #555555;
+            }
+        }
 
-</head>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-<!--CSS-->
-<link href="./index_css.css" rel="stylesheet">
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
 
-<style>
-    .project_table {
-        margin: 2%;
-        text-align:start;
-    }
+        /* Two-column wrapper layout */
+        .wrapper {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 50px;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 24px;
+        }
 
-   .bio-photo {
-            background: #000;
+        /* Left Column (Sticky Sidebar) */
+        .sidebar {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 60px;
+            height: fit-content;
+        }
+
+        .profile-photo {
+            width: 100%; /* Scales dynamically with the sidebar width */
+            max-width: 240px;
+            aspect-ratio: 1 / 1;
+            border-radius: 12px;
+            object-fit: cover;
+            border: 1px solid var(--border-color);
+            margin-bottom: 20px;
+        }
+
+        .sidebar h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 6px;
+        }
+
+        .sidebar-title {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        .sidebar-links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 30px;
+        }
+
+        .sidebar-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .sidebar-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Right Column (Main Content) */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        section h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        p {
+            font-size: 0.98rem;
+            margin-bottom: 16px;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* News Section */
+        .news-list {
+            list-style: none;
+            font-size: 0.95rem;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .news-date {
+            font-weight: 600;
+            background-color: var(--border-color);
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-right: 8px;
+            font-size: 0.85rem;
+        }
+
+        /* Experience & Education list */
+        .timeline-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+        }
+
+        .timeline-item h3 {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .timeline-sub {
+            color: var(--text-secondary);
+        }
+
+        .timeline-date {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        /* Publications with Side Figures */
+        .pub-row {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 32px;
+            align-items: flex-start;
+        }
+
+        /* Responsive figure styling */
+        .pub-figure-container {
+            width: 20% ;
+            height: 90%;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background-color: var(--teaser-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .pub-figure {
             width: 100%;
             height: 100%;
-            color: #fff;
-            text-align: center;
-            border-radius: 50%;
+            object-fit: cover;
         }
-    .background {
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-size: cover;
-      
-    }
-    .bg-inside{
-      background-color:rgba(255, 255, 255, 0.9);
-      margin:2% 2% 2% 2%;
-      padding: 2% 8% 2% 8%;
-      background-attachment: fixed;
-      background-size: auto;
-    }
-    .left {
-      float: left;
-      width: 40%;
-      margin:5%;
-      display: inline;
-    }
-    .boxright {
-      float: left;
-      margin: 5%;
-      display: inline;
-    }
-    .button {
-    background-color: grey; /* Green */
-    border: none;
-    color: white;
-    text-align: center;
-    display: inline-block;
-    border-radius: 2px;
-    margin: 1px;
-}
-    .button-page{
-        background-color: #008fb3;
-    }
-    .button-sourcecode{
-        background-color:  #204060;
-    }
-    .button-demo{
-        background-color: #FF5733;
-    }
-    .button-paper{
-        background-color: #2eb82e;
-    }
-    .button-colab{
-        background-color: #efa925;
-    }
-    .button-data{
-        background-color: rgb(162, 94, 122);
-    }
-    .button-na{
-        background-color: #000000;
-    }
-</style>
 
+        .pub-placeholder-text {
+            font-size: 0.75rem;
+            color: var(--teaser-text);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
 
+        .pub-details {
+            flex: 1;
+        }
 
-<body class='background'>
-	<div class='bg-inside'>
-    <div class="container body-content"></div>
+        .pub-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+            line-height: 1.4;
+        }
 
-<!--body-->
+        .pub-authors {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
 
-    <div class="bg-inside" style="font-family:'Times New Roman', Times, serif">
-    <!--Bio-->
-         <div class="Bio"><table><col width="75%" /><col width="25%" /><tr>
-          <td>
-            <div class="subtitle-center" style='text-align: center'><b>Aiyu Cui</b></div>
-            <div class="bio-content" style="text-align: left;line-height: 1.5;font-size: medium">
-              
-            
-                <p>I am currently an Applied Scientist at Amazon AGI Foundation, focusing on the research and production for the foundational image generation/editing model. I obtained my <b>Ph.D. in Computer Science</b> from <a>University of Illinois Urbana-Champaign</a> in 2024, advised by Prof.
-                <a href="http://slazebni.cs.illinois.edu/">Svetlana Lazebnik</a>. 
-                Before that, I received my B.S. degree in Computer Science from <b>Penn State</b>, where I was luckily working with
-                <a href="https://www.cse.psu.edu/~rtc12/">Prof.Robert Collins</a> 
-                and <a href="https://www.cse.psu.edu/~yul11/">Prof. Yanxi Liu</a>. 
-                 </p>
-                 <p>
-                    My research focuses on generative modeling in <b>computer vision</b>, with a particular emphasis on utilizing <b>diffusion models</b> for real-world applications such as virtual try-on and image stylization. I am open to new connections and opportunities — feel free to reach out!                 </p>
-                <a class='button-page button' href="mailto:aiyucui.work@gmail.com">&nbsp Email &nbsp</a> 
-                <a class='button-page button' href="https://scholar.google.com/citations?user=ySzjUaQAAAAJ&hl=en&oi=sra">&nbsp Google Scholar &nbsp</a>
-                <a class='button-page button' href="https://www.linkedin.com/in/aiyu-cui-7b57a314a/">&nbsp LinkedIn &nbsp</a>
-                <a class='button-page button' href="#projects">&nbsp Projects &nbsp</a>
-            
-            </div></td>
-            <td><div class='bio-content' style='padding: 30% 5% 2% 5%;'>
-                <img class="bio-photo" src="images/myPhoto.jpg"/>
-               </div></td>
-      </tr></table></div>
+        .pub-venue {
+            font-size: 0.88rem;
+            font-weight: 600;
+            margin-right: 12px;
+        }
 
+        .pub-award {
+            font-size: 0.8rem;
+            color: #d9381e;
+            font-weight: 600;
+            background-color: rgba(217, 56, 30, 0.08);
+            padding: 1px 6px;
+            border-radius: 4px;
+            margin-right: 12px;
+            display: inline-block;
+        }
 
-            
+        .pub-links {
+            display: inline-flex;
+            gap: 8px;
+            margin-top: 4px;
+        }
 
-    <!-- Internships section -->
-    <section id="internships" class="container content-section text-center">
-        <h3>Research Internships</h3>
-        <table class="container content-section text-center">
-            <tr>
-                <td width=5%></td>
-                <td width=30%></td>
-                <td width=30%></td>
-                <td width=30%></td>
-                <td width=5%></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><img id="intern_logos" src="images/logos/adobe.png" width=50%></td>
-                <td><img id="intern_logos" src="images/logos/meta.png" width=50%></td>
-                <td><img id="intern_logos" src="images/logos/google.png" width=25%></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><b><h4>Adobe</h4></b></td>
-                <td><b><h4>Meta</h4></b></td>
-                <td><b><h4>Google</h4></b></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>2021</td>
-                <td>2022</td>
-                <td>2023</td>
-                <td></td>
-            </tr>
-        </table>
-        <br>
+        .pub-links a {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            text-decoration: none;
+        }
 
-        <h3>Education</h3>
-        <table class="container content-section text-center">
-            <tr>
-                <td width=10%></td>
-                <td width=40%></td>
-                <td width=40%></td>
-                <td width=10%></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><img id="intern_logos" src="images/logos/penn_state.png" width=30%></td>
-                <td><img id="intern_logos" src="images/logos/uiuc.png" width=15%></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><b><h4>Penn State University</h4></b></td>
-                <td><b><h4>University of Illinois Urbana-Champaign</h4></b></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>B.S. | 2014-2018</td>
-                <td>Ph.D. | 2018-2024</td>
-            </tr>
-        </table>
-    </section>
+        .pub-links a:hover {
+            text-decoration: underline;
+        }
 
-<!-- Projects section -->
-<section id="projects" class="container content-section">
-    <h3>Research Papers and Projects</h3>
-    <table class="project_table"><col width="25%" /><col width="5%" /><col width="65%" />
+        /* Responsive Breakpoints */
+        @media (max-width: 768px) {
+            .wrapper {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 40px 20px;
+            }
 
-        <tr>
-            <td>
-                <img src="images/unziplora_small_teaser.jpg" width=100%>
-            </td>
-            <td></td>
-            <td><div><a href="https://unziplora.github.io"><h4><b style="color: red;">(NEW!)</b>UnZipLoRA: Separating Content and Style from A Single Image</h4></a> 
-                    C. Liu, V. Shah, <b>A. Cui</b>, S. Lazebnik
-                    <br><b>ICCV, 2025</b>
-                    <br>
-                    <a class='button-page button' href="https://unziplora.github.io">&nbsp <u>Project Page</u> &nbsp</a> 
-                    <a class='button-paper button' href="https://arxiv.org/abs/2412.04465">&nbsp <u>Paper</u> &nbsp</a>
-                    <a class="github-button"
-                        href="https://github.com/changLiu77/UnZipLoRA"
-                        data-icon="octicon-star"
-                        data-size="small"
-                        data-show-count="true"
-                        aria-label="Star ntkme/github-buttons on GitHub">Star</a>  
-            </div></td>
-        </tr>
-</table>
+            .sidebar {
+                position: relative;
+                top: 0;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
 
-    <table class="project_table"><col width="25%" /><col width="5%" /><col width="65%" />
+            .sidebar-links {
+                flex-direction: row;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 12px;
+                margin-bottom: 10px;
+            }
 
-        <tr>
-            <td><img src="images/little_teaser.gif" width=100%></td>
-            <td></td>
-            <td><div><a href="StreetTryOn/"><h4>Street TryOn: Learning In-the-Wild Virtual Try-On from Unpaired Images</h4></a> 
-                    <b>A. Cui</b>,  J. Mahajan, V. Shah, P. Gomathinayagam, C. Liu, S. Lazebnik
-                    <br><b>WACV 2025</b>
-                    <br><b style='color:#FF5733;'>Best Paper</b> at <i><a href="https://sites.google.com/view/cvfad2024/">Computer Vision for Fashion, Art and Design Workshop</a></i>, CVPR 2024.
-                    <br>
-                    <a class='button-page button' href="StreetTryOn/index.html">&nbsp <u>Project Page</u> &nbsp</a> 
-                    <a class='button-paper button' href="https://arxiv.org/pdf/2311.16094.pdf">&nbsp <u>Paper</u> &nbsp</a>  
-                    <a class='button-data button' href="https://github.com/cuiaiyu/street-tryon-benchmark">&nbsp <u>Data</u> &nbsp</a>
-                    <a class="github-button"
-                        href="https://github.com/cuiaiyu/street-tryon-benchmark"
-                        data-icon="octicon-star"
-                        data-size="small"
-                        data-show-count="true"
-                        aria-label="Star ntkme/github-buttons on GitHub">Star</a>
-            </div></td>
-        </tr>
-</table>
+            .pub-row {
+                flex-direction: column;
+                gap: 12px;
+            }
 
-<table class="project_table"><col width="25%" /><col width="5%" /><col width="65%" />
+            .pub-figure-container {
+                width: 100%;
+                height: 140px;
+            }
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
         
-    <tr>
-        <td><img src="ArtifyGAN/images/demo.gif" width=100%></td>
-        <td></td>
-        <td><div><a href='ArtifyGAN/'><h4>One-Shot Stylization for Full-Body Human Images</h4></a> 
-            <b>A. Cui</b>,  S. Lazebnik
-            <br><b>arXiv, 2023</b>
-            <br>
-            <a class='button-page button' href="ArtifyGAN/">&nbsp <u>Project Page</u> &nbsp</a> 
-            <a class='button-paper button' href="https://arxiv.org/pdf/2304.06917.pdf">&nbsp <u>Paper</u> &nbsp</a>  
-        </div></td>
-    </tr>
-</table>
-<table class="project_table"><col width=25%></td><col width=5%></td><col width=65%>
-    <tr>
-        <td><img src="images/garment_iuv.png" width=100%></td>
-        <td></td>
-    <td><div><a><h4>Learning Garment DensePose for Robust Warping in Virtual Try-On</h4></a> 
-        <b>A. Cui</b>,  S. He, T. Xiang, A. Toisoul
-        <br><b>arXiv 2023</b>
-        <br>
-        <a class='button-paper button' href="https://arxiv.org/pdf/2303.17688">&nbsp <u>Paper</u> &nbsp</a>  
-        
-   </div></td>
-</tr></table>
-
-<table class="project_table"><col width=25%></td><col width=5%></td><col width=65%>
-        <tr>
-            <td><img src="dressing-in-order/images/small_cover.png" width=100%></td>
-            <td></td>
-            <td><div><a href='dressing-in-order/'><h4>Dressing in Order: Recurrent Person Image Generation for Pose Transfer, Virtual Try-on and Outfit Editing.</h4></a> 
+        <!-- Sidebar (Left Column) -->
+        <aside class="sidebar">
+            <img src="images/myPhoto.jpg" alt="Aiyu Cui" class="profile-photo">
             
-                <b>A. Cui</b>, D. McKee, S. Lazebnik
-                <br><b>ICCV 2021</b>
-                <br><b style='color:#FF5733;'>Best Paper</b> at <a href="https://sites.google.com/zalando.de/cvfad2021/home"><i>Computer Vision for Fashion, Art and Design Workshop</i></a>, CVPR 2021.
-                <br>
-                <a class='button-page button' href="https://cuiaiyu.github.io/dressing-in-order/">&nbsp <u>Project Page</u> &nbsp</a> 
-                <a class='button-paper button' href="https://openaccess.thecvf.com/content/ICCV2021/html/Cui_Dressing_in_Order_Recurrent_Person_Image_Generation_for_Pose_Transfer_ICCV_2021_paper.html">&nbsp <u>Paper</u> &nbsp</a>  
-                <a class='button-demo button' href="https://youtu.be/z0UgPSTEdVo">&nbsp <u>Video Talk</u> &nbsp</a> 
-                <a class="'button-colab button" style='background-color: #efa925;' href="https://colab.research.google.com/drive/1WfeKTPtt3qtlcTlrX47J03mxUzbVvyrL?usp=sharing">&nbsp <u>Colab Demo</u> &nbsp</a> 
-                <a class='button-sourcecode button'  href="https://github.com/cuiaiyu/dressing-in-order">&nbsp <u>Code</u> &nbsp</a> 
-                <a class="github-button"
-                    href="https://github.com/cuiaiyu/dressing-in-order"
-                    data-icon="octicon-star"
-                    data-size="small"
-                    data-show-count="true"
-                    aria-label="Star ntkme/github-buttons on GitHub">Star</a>
+            <h1>Aiyu Cui</h1>
+            <div class="sidebar-title">
+                Applied Scientist<br>
+                <strong>Amazon AGI</strong>
+            </div>
+            
+            <div class="sidebar-links">
+                <a href="mailto:aiyucui.work@gmail.com">Email</a>
+                <a href="https://scholar.google.com/citations?user=ySzjUaQAAAAJ" target="_blank">Google Scholar</a>
+                <a href="https://github.com/cuiaiyu" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/aiyu-cui/" target="_blank">LinkedIn</a>
+            </div>
+        </aside>
+
+        <!-- Main Content (Right Column) -->
+        <main class="main-content">
+            
+            <!-- About Me -->
+            <section id="about">
+                <h2>About Me</h2>
+                <p>
+                    I am an <b>Applied Scientist at Amazon AGI</b>, where I focus on core research and development for <b>foundational generative AI</b>.
+                </p>
+                <p>
+                    I earned my Ph.D. in Computer Science from the UIUC in 2024, where I was fortunate to be advised by Prof. <a href="https://slazebni.cs.illinois.edu/" style="color: var(--accent-color); text-decoration: none;">Svetlana Lazebnik</a>. Prior to that, I completed my B.S. in Computer Science at Penn State University.
+                </p>
+                <p>
+                    My research focuses on <b>generative image and video modeling</b>. I am passionate about <b>tackling fundamental challenges</b> like high-fidelity detail preservation and grounding advanced foundation models in practical, <b>real-world applications</b> such as virtual try-on.
+                </p>
+            </section>
+
+            <!-- News Section -->
+            <section id="news">
+                <h2>News</h2>
+                <ul class="news-list">
+                    <li>
+                        <span class="news-date">Sep 2025</span>
+                        "Unziplora" has been accepted to ICCV 2025!
+                    </li>
+                    <li>
+                        <span class="news-date">Jan 2025</span>
+                        "Street TryOn" is accepted to WACV 2025.
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Publications -->
+            <section id="publications">
+                <h2>Selected Research</h2>
+
+                <!-- Publication 1 -->
+                <div class="pub-row">
+                    <div class="pub-figure-container">
+                        <img src="images/nova2.png" alt="Unziplora Teaser" class="pub-figure" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="pub-placeholder-text" style="display: none;">[Nova2]</span>
+                    </div>
+                    <div class="pub-details">
+                        <div class="pub-title">Amazon Nova 2: Multimodal Reasoning and Generation Models</div>
+                        <div class="pub-authors">Amazon AGI</div>
+                        <div>
+                            <span class="pub-venue">Technical Report 2025</span>
+                            <span class="pub-links">
+                                <a href="https://cdn.amazon.science/c5/3d/84514a224666b5be6de4b43ef4aa/nova-2-0-technical-report2.pdf" target="_blank">[Paper]</a>
+                                
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Publication 1 -->
+                <div class="pub-row">
+                    <div class="pub-figure-container">
+                        <img src="images/unziplora_small_teaser.jpg" alt="Unziplora Teaser" class="pub-figure" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="pub-placeholder-text" style="display: none;">[Unziplora]</span>
+                    </div>
+                    <div class="pub-details">
+                        <div class="pub-title">Unziplora: Separating content and style from a single image</div>
+                        <div class="pub-authors">C. Liu, V. Shah, <strong>Aiyu Cui</strong>, S. Lazebnik</div>
+                        <div>
+                            <span class="pub-venue">ICCV 2025</span>
+                            <span class="pub-links">
+                                <a href="https://unziplora.github.io/" target="_blank">[Project Page]</a>
+                                <a href="https://arxiv.org/abs/2412.04465" target="_blank">[Paper]</a>
+                                <a href="https://github.com/changLiu77/UnZipLoRA" target="_blank">[Code]</a>
+                                
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
                 
-                </div></td>
-        </tr></table>
-  </div></section>
 
-	
+                <!-- Publication 2 -->
+                <div class="pub-row">
+                    <div class="pub-figure-container">
+                        <!-- If street_tryon.jpg exists, it will render. Otherwise, it defaults back to clean placeholder text. -->
+                        <img src="images/little_teaser.gif" alt="Street TryOn Teaser" class="pub-figure" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="pub-placeholder-text" style="display: none;">[Street TryOn]</span>
+                    </div>
+                    <div class="pub-details">
+                        <div class="pub-title">Street TryOn: Learning In-the-Wild Virtual Try-On from Unpaired Person Images</div>
+                        <div class="pub-authors"><strong>Aiyu Cui</strong>, J. Mahajan, V. Shah, P. Gomathinayagam, C. Liu, S. Lazebnik</div>
+                        <div>
+                            <span class="pub-venue">WACV 2025</span>
+                             <span class="pub-award">Best Paper @ CVFAD CVPR Workshop 2024</span>
+                            <span class="pub-links">
+                                <a href="https://cuiaiyu.github.io/StreetTryOn/" target="_blank">[Project Page]</a>
+                                <a href="https://arxiv.org/abs/2311.16140" target="_blank">[Paper]</a>
+                                <a href="https://github.com/cuiaiyu/street-tryon-benchmark" target="_blank">[Code]</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
 
+                <!-- Publication 3 -->
+                <div class="pub-row">
+                    <div class="pub-figure-container">
+                        <img src="images/garment_iuv.png" alt="Garment DensePose Teaser" class="pub-figure" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="pub-placeholder-text" style="display: none;">[DensePose]</span>
+                    </div>
+                    <div class="pub-details">
+                        <div class="pub-title">Learning Garment DensePose for Robust Warping in Virtual Try-On</div>
+                        <div class="pub-authors"><strong>Aiyu Cui</strong>, S. He, T. Xiang, A. Toisoul</div>
+                        <div>
+                            <span class="pub-venue">arXiv 2023</span>
+                            <span class="pub-links">
+                                <a href="https://arxiv.org/abs/2303.17688" target="_blank">[Paper]</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Publication 4 -->
+                <div class="pub-row">
+                    <div class="pub-figure-container">
+                        <img src="dressing-in-order/images/small_cover.png" alt="Dressing in Order Teaser" class="pub-figure" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="pub-placeholder-text" style="display: none;">[Dressing]</span>
+                    </div>
+                    <div class="pub-details">
+                        <div class="pub-title">Dressing in Order: Recurrent Person Image Generation for Pose Transfer, Virtual Try-On and Outfit Editing</div>
+                        <div class="pub-authors"><strong>Aiyu Cui</strong>, Daniel McKee, Svetlana Lazebnik</div>
+                        <div>
+                            <span class="pub-venue">ICCV 2021</span>
+                            <span class="pub-award">Best Paper @ CVFAD CVPR Workshop 2021</span>
+                            <span class="pub-links">
+                                <a href="https://cuiaiyu.github.io/dressing-in-order/" target="_blank">[Project Page]</a>
+                                <a href="https://github.com/cuiaiyu/dressing-in-order" target="_blank">[Code]</a>
+                                <a href="https://arxiv.org/abs/2104.7021" target="_blank">[Paper]</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- Experience -->
+            <section id="experience">
+                <h2>Experience</h2>
+                
+                <div class="timeline-item">
+                    <div>
+                        <h3>Applied Scientist</h3>
+                        <div class="timeline-sub">Amazon AGI</div>
+                    </div>
+                    <div class="timeline-date">2025 – Present</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div>
+                        <h3>Research Scientist</h3>
+                        <div class="timeline-sub">Meta</div>
+                    </div>
+                    <div class="timeline-date">2024 – 2025</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div>
+                        <h3>Research Scientist Intern</h3>
+                        <div class="timeline-sub">Google</div>
+                    </div>
+                    <div class="timeline-date">2023</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div>
+                        <h3>Research Scientist Intern</h3>
+                        <div class="timeline-sub">Meta</div>
+                    </div>
+                    <div class="timeline-date">2022</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div>
+                        <h3>Research Scientist Intern</h3>
+                        <div class="timeline-sub">Adobe</div>
+                    </div>
+                    <div class="timeline-date">2021</div>
+                </div>
+            </section>
+
+            <!-- Education -->
+            <section id="education">
+                <h2>Education</h2>
+                
+                <div class="timeline-item">
+                    <div>
+                        <h3>University of Illinois Urbana-Champaign</h3>
+                        <div class="timeline-sub">Ph.D. in Computer Science</div>
+                    </div>
+                    <div class="timeline-date">2018 – 2024</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div>
+                        <h3>Penn State University</h3>
+                        <div class="timeline-sub">B.S. in Computer Science</div>
+                    </div>
+                    <div class="timeline-date">2014 – 2018</div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer>
+                <p>&copy; 2026 Aiyu Cui. All rights reserved.</p>
+            </footer>
+
+        </main>
     </div>
-    </div>
-        
-
-    
-    <script src="/static/app/scripts/jquery-1.10.2.js"></script>
-    <script src="/static/app/scripts/bootstrap.js"></script>
-    <script src="/static/app/scripts/respond.js"></script>
-
 
 </body>
 </html>
