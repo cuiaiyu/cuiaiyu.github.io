@@ -1,0 +1,228 @@
+
+<!DOCTYPE HTML>
+<html>
+
+<!-- ======================================================================= -->
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script type="text/javascript">google.load("jquery", "1.3.2");</script>
+
+<link href='https://fonts.googleapis.com/css?family=Titillium Web' rel='stylesheet'>
+<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/dreampulse/computer-modern-web-font/master/fonts.css">
+<style>
+  .app-box {
+    height:5%;
+    margin-top:10px;
+    margin-bottom:10px;
+    margin-left:2%;
+    margin-right:2%;
+    padding-top:5px;
+    padding-bottom:5px;
+    padding-left:15px;
+    padding-right:15px;
+    border-radius: 15px;
+    background-color: #fdfcdc;
+  }
+  .app-bg{
+    padding:2px
+    padding-left:4px;
+    margin:2px;
+    padding-right:4px;
+    border-radius:2px;
+    font-weight: bold;
+  }
+
+</style>
+
+<!-- ======================================================================= -->
+
+
+<script type="text/javascript" src="resources/hidebib.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,600,400italic,600italic,300,300italic' rel='stylesheet' type='text/css'>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Dressing in Order: Recurrent Person Image Generation for Pose Transfer, Virtual Try-on and Outfit Editing</title>
+</head>
+
+<body style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size:medium">
+      <br>
+      <center><h1 style="margin-top:2%; margin-left:10%; margin-right:10%">
+        <b style="color:#CD533B">D</b>ressing <b style="color:#CD533B">i</b>n <b style="color:#CD533B">Or</b>der: Recurrent Person Image Generation for Pose Transfer, Virtual Try-on and Outfit Editing</h1></center><br/>
+      <center><table align=center width=40%>
+      <tr>
+        <td style="font-size:large"><center><a href="https://cuiaiyu.github.io">Aiyu Cui</a></center></td>
+        <td style="font-size:large"><center><a href="http://danielbmckee.com/">Daniel McKee</a></center></td>
+        <td style="font-size:large"><center><a href="http://slazebni.cs.illinois.edu">Svetlana Lazebnik</a></center></td>
+      </tr>
+      </table>
+      <table align=center width=60%;style="margin:10%">
+        <tr><td align=center><center><h3>University of Illinois at Urbana-Champaign</h3></center></td></tr>
+        <tr><td align=center><h3><center>ICCV 2021</center></h3></td></tr>
+        
+        <tr><td align=center></td></tr>
+    </table></center>
+      
+      
+     
+      <table align=center width=40%>
+          <tr>
+            <td><center><span style="font-size:large"><a href="https://openaccess.thecvf.com/content/ICCV2021/html/Cui_Dressing_in_Order_Recurrent_Person_Image_Generation_for_Pose_Transfer_ICCV_2021_paper.html">[Paper]</a></span></center></td>
+            <td><center><span style="font-size:large"><a href="https://youtu.be/z0UgPSTEdVo">[Talk]</a></span></center></td>
+            <td><center><span style="font-size:large"><a href="bibtex.txt">[Bibtex]</a></span></center></td>
+            <td><center><span style="font-size:large"><a href="https://github.com/cuiaiyu/dressing-in-order">[Github]</a></span></center></td>
+            <td><center><span style="font-size:large"><a href="https://colab.research.google.com/drive/1WfeKTPtt3qtlcTlrX47J03mxUzbVvyrL?usp=sharing">[Colab Demo]</a></span></center></td>
+          </tr>
+      </table><br/>
+      <br>
+      <div><center>
+        <iframe width="500" height="375"
+src="https://www.youtube.com/embed/z0UgPSTEdVo">
+</iframe>
+</center></div>
+     
+      <div style="width:80%; margin:0 auto; text-align=center">
+      <h2>News</h2>
+        <ul>
+          <li>[08/2021] We released code <a href="https://github.com/cuiaiyu/dressing-in-order">here</a>.</li>
+          <li>[07/2021] DiOr is accepted by <b style="color:#CD533B">ICCV 2021</b>!</li>
+          <li>[06/2021] <b ><a href="https://openaccess.thecvf.com/content/ICCV2021/html/Cui_Dressing_in_Order_Recurrent_Person_Image_Generation_for_Pose_Transfer_ICCV_2021_paper.html">
+            Dressing in Order (DiOr)</a>
+            </b> is selected as <b style="color:#CD533B">the best paper</b> at CVFAD @ CVPR 2021!
+            <li>[05/2021] We will give an <b style="color:#CD533B">oral presentation</b> at <a href="https://sites.google.com/zalando.de/cvfad2021/home">Computer Vision for Fashion, Art and Design Workshop</a> (CVFAD @ CVPR 2021)!
+            
+        </ul>
+        </div>
+        <div style="width:80%; margin:0 auto; text-align=center">
+        <hr>
+        <div style="width:40%; margin:0 auto; text-align=center">
+          <center><img src="images/dior_overlay-cover.png" height=80% width=80%></img></center>
+          </div>
+      <h2>Abstract</h2>
+          <p>This paper proposes a flexible person generation framework called 
+            <b style="color:#CD533B">Dressing in Order (DiOr)</b>, 
+          which supports 2D pose  transfer,  virtual  try-on,  and  several  fashion  editing tasks. 
+          Key to DiOr is a novel recurrent generation pipeline to sequentially put garments on a person, 
+          so that trying on the same garments in different orders will result in different looks.  
+          Our system can produce dressing effects not achievable by existing work,  including  different  interactions  of garments 
+          (e.g., wearing a top tucked into the bottom or overit), as well as layering of multiple garments of the same type 
+          (e.g., jacket over shirt over t-shirt).
+          DiOr explicitly encodes the shape and texture of each garment, enabling these elements to be edited separately. 
+          Joint training on pose transfer and inpainting helps with detail preservation and coherence  of  generated  garments.   
+          Extensive evaluations show that DiOr outperforms other recent methods like <a href="https://menyifang.github.io/projects/ADGAN/ADGAN.html">ADGAN</a> in terms of output quality, 
+          and handles a wide range of editing functions for which there is no direct supervision.</p>
+      <h4>Selected applications that DiOr supports: </h4>
+        <table>
+          <tr>
+            <td> <a class='app-bg' style="background-color: aliceblue;">Pose-guided person generation</a>	&nbsp;</td>
+          <td><a href="#tucking" class='app-bg' style="background-color:#FCF4D7">Tucking in (try-on)</a>	&nbsp;</td>
+          <td><a href="#removal" class='app-bg' style="background-color: #ccd5ae;"> Content removal</a>	&nbsp;</td>
+          <td><a href="#tex" class='app-bg' style='background-color:#fefae0'> Texture transfer</a> &nbsp;</td> 
+        </tr>
+        <tr>
+          <td></td>
+          <td><a href="#layering" class='app-bg' style='background-color: #F4F4D5'> Garment layering (try-on)</a>	&nbsp; </td>
+          <td><a href="#insertion" class='app-bg' style='background-color:#e9edc9'> Content insertion</a>	&nbsp;</td>
+          <td><a href="#shape" class='app-bg' style='background-color:#faedcd'> Garment reshaping</a></td>
+        </tr>
+      </table>
+    </div>
+
+      <hr>
+
+      <div style="width:80%; margin:0 auto; text-align=center">
+
+        <h2>Dataset and Preprocessing</h2>
+            <p>We use <a href='http://mmlab.ie.cuhk.edu.hk/projects/DeepFashion/InShopRetrieval.html'>deepfashion dataset (inshop)</a>. 
+              We obtain pose estimations by <a href="https://github.com/CMU-Perceptual-Computing-Lab/openpose">OpenPose</a> and 
+              human parsing by <a href="https://github.com/PeikeLi/Self-Correction-Human-Parsing">SCHP</a>.
+            </p>
+              <p>This model can be trained on a single 12GB Graphic card for 256x176 images within 1-2 days.</p>
+        </div><br/><hr>
+
+      
+      <div style="width:80%; margin:0 auto; text-align=center">
+
+      <h2>Try-on Applications</h2>
+      <p>
+        DiOr supports a couple of novel virtual try-on applications, including:</p>
+        <table>
+          <tr><td width="32%"></td>
+            <td width="68%"></td></tr>
+            <tr><td>
+          <div id='tucking' class='app-box' style='background-color: #FCF4D7;'><h4 style='color: #CD533B'>Tucking in</h4>
+                  <p>Users can control whether they want to tuck in or not by specifying the dressing order.</p> </div>
+            </td>
+          <td><div id='layering' class='app-box' style='background-color: #F4F4D5'><h4 style='color: #CD533B'>Garment Layering</h4>
+                <p>Our DiOr system supports users to both add base layers under the existing outfits and keep layering garments outside existing outfits. Users can achieve different looks by different dressing order to freely express their fashion tastes!</p> </div>
+          </td></tr>
+        </table>
+          <center><img src="images/short_try_on_editing.png" width=100%></img></center>
+        </div>
+          
+      <div style="width:80%; margin:0 auto; text-align=center">
+              <h2>Editing Applications</h2>
+              <p>DiOr also supports a number of fashion editing tasks, including: </p>
+              <table>
+                  <tr>
+                      <td width="25%"></td>
+                      <td width="25%"></td>
+                      <td width="25%"></td>
+                      <td width="25%"></td>
+                    </tr>
+              <tr>
+              <td><div id='removal' class='app-box' style="background-color: #ccd5ae;"><h4  style='color: #CD533B'>Content Removal</h4>
+               <p>Users can remove the unwanted contents on garments (e.g., logos) with DiOr system! </p>
+              </div></td> 
+              <td><div id='insertion' class='app-box' style='background-color:#e9edc9'><h4 style='color:#CD533B'>Print Insertion</h4>
+              <p>Users can insert external prints 
+                        (e.g. <a href="https://en.wikipedia.org/wiki/Doge_(meme)">doge dog</a> or 
+                        <a href="https://en.wikipedia.org/wiki/Bulbasaur">Bulbasaur Pokemon</a>) on the outfits!</p>
+                      </div></td> 
+              <td><div id='tex' class='app-box' style='background-color:#fefae0'><h4 style='color:#CD533B'>Texture Transfer</h4>
+              <p>Don't like the garment texture? Swap it with another texture from garments or wild pictures!</p>
+            </div></td> 
+            <td><div id='shape' class='app-box' style='background-color:#faedcd'><h4 style='color:#CD533B'>Reshaping</h4> 
+                      <p>Not happy with the garment's shape either? Use DiOr to reshape it into the desired shape!</p>
+                    </div></td>
+                    </table>
+              <center><img src="images/short_editing.png" height=80% width=100%></img></center>
+            </tr></div>
+              
+      </div><br/>
+
+      <div style="width:80%; margin:0 auto; text-align=center">
+          <h3>Check <a href='https://openaccess.thecvf.com/content/ICCV2021/html/Cui_Dressing_in_Order_Recurrent_Person_Image_Generation_for_Pose_Transfer_ICCV_2021_paper.html'>our paper</a> to see what else DiOr can do!</h3>
+          </div>
+          
+  </div><br/><hr>
+
+  <div style="width:80%; margin:0 auto; text-align=center">
+    <h2>Citation</h2>
+    <p>If you find this work is helpful, please cite us as 
+      <pre>
+      <code>
+        @inproceedings{cui2021dressing,
+          title={Dressing in order: Recurrent person image generation for pose transfer, virtual try-on and outfit editing},
+          author={Cui, Aiyu and McKee, Daniel and Lazebnik, Svetlana},
+          booktitle={Proceedings of the IEEE/CVF international conference on computer vision},
+          pages={14638--14647},
+          year={2021}
+        }
+      </code>
+      </pre>
+    </p>
+    
+  </div>
+      
+</div><br/>
+
+<hr/>
+<p>Thanks to <a href="unnat.github.io">Unnat Jain</a> for sharing the template of this project page. </p>
+
+
+    
+
+    
+</script>
+</body>
+</html>
