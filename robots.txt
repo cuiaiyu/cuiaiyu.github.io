@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+LLMs-Txt: https://cuiaiyu.github.io/llms.txt
